@@ -1,0 +1,34 @@
+<view class="container">
+    <view class="header-container">
+        <view class="type-container">
+            <text>全部类型</text>
+            <view class="line"></view>
+            <image src="../../images/common/type-icon.png" />
+        </view>
+        <view class="header-main-container">
+            <view class="date-container">
+                <text>2020年12月</text>
+                <image src="../../images/common/down-icon.png" />
+            </view>
+            <view class="money-container">
+                <view>总支出¥7000.00</view>
+                <view>总收入¥7100.00</view>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{!dataList}}" class="no-data-container">
+        <image src="../../images/common/no-data.png" />
+        <text>本月还没记账</text>
+        <text>快去创建你的第一笔账吧~</text>
+    </view>
+    <view class="container" wx:else>
+        <view class="main-container">
+            <block wx:for="{{dataList}}" wx:key="id">
+                <m-detail></m-detail>
+            </block>
+        </view>
+        <l-loading show="{{isLoading}}" color="#8DB8FF" type="change" l-container-class="{{isLoading?'loading-container':''}}"></l-loading>
+        <view wx:if="{{!isLoading}}" class="load-msg">上滑加载更多~</view>
+    </view>
+    <m-record></m-record>
+</view>

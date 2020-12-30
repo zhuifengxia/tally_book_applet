@@ -1,0 +1,39 @@
+<view class="container">
+    <view class="user-container" wx:if="{{!isLogin}}">
+        <l-avatar size="140" icon-color="#389cdb" icon="user" icon-size="80" />
+        <view class="user-data">
+            <view class="user-name-container">
+                <text class="user-name" style="width:45%" bind:tap="login">马上登录</text>
+            </view>
+            <text class="user-phone">登录后可以使用更多功能哦</text>
+        </view>
+    </view>
+    <view class="user-container" wx:else>
+        <l-avatar open-data="{{['userAvatarUrl']}}" />
+        <view class="user-data">
+            <view class="user-name-container">
+                <open-data class="user-name" type="userNickName" lang="zh_CN"></open-data>
+            </view>
+            <view class="user-phone-container">
+                <text class="user-phone">{{user_info.user_phone}}</text>
+                <view class="user-vip-container">
+                    <text class="user-vip {{user_info.user_vip.isvip?'vip':''}}">VIP</text>
+                    <text class="user-vip-msg">({{user_info.user_vip.vipmsg}})</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="item-container">
+        <l-list title="看铺次数" l-icon-class="icon-color" icon="eye" right-desc="已看铺 {{user_info.user_vip.see_num}} 次" tag-position="right" is-link="false" />
+        <l-list title="会员中心" image="/images/user/vip-center.png" bind:lintap="operType" data-type="0" />
+        <l-list title="我的发布" image="/images/user/publish.png" bind:lintap="operType" data-type="1" />
+        <l-list title="我的收藏" l-icon-class="icon-color" icon="favor" bind:lintap="operType" data-type="2" />
+        <l-list title="我的浏览" l-icon-class="icon-color" icon="time" bind:lintap="operType" data-type="3" />
+        <l-list title="我的订单" l-icon-class="icon-color" icon="order" bind:lintap="operType" data-type="4" />
+        <l-list title="账户设置" l-icon-class="icon-color" icon="setting" bind:lintap="operType" data-type="5" />
+        <button class="btn-customer" open-type="contact">
+            <l-list title="客服服务" l-icon-class="icon-color" icon="customer-service" />
+        </button>
+        <l-list title="关于我们" l-icon-class="icon-color" icon="warning" bind:lintap="operType" data-type="6" />
+    </view>
+</view>

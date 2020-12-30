@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/index",
+    "pages/login/index",
+    "pages/create_tally/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "小莫记账",
+    "navigationBarBackgroundColor": "#8DB8FF",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#ffffff",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "selectedColor": "#8DB8FF",
+    "backgroundColor": "#ffffff",
+    "color": "#919191",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "明细",
+        "iconPath": "images/tab/details.png",
+        "selectedIconPath": "images/tab/details@highlight.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "统计",
+        "iconPath": "images/tab/statistics.png",
+        "selectedIconPath": "images/tab/statistics@highlight.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我",
+        "iconPath": "images/tab/user.png",
+        "selectedIconPath": "images/tab/user@highlight.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

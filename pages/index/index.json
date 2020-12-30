@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "m-record": "/components/record/index",
+    "m-detail": "/components/one_detail/index",
+    "l-loading": "/miniprogram_npm/lin-ui/loading/index"
+  }
+}

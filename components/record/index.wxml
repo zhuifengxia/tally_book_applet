@@ -1,0 +1,3 @@
+<view class="container" bind:tap="onTap">
+    <image src="../images/record-icon.png" />
+</view>

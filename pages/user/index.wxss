@@ -1,0 +1,75 @@
+.container{
+    width: 100%;
+}
+.user-container{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    padding: 10px;
+}
+
+.user-data{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 59px;
+    margin-left: 15px;
+}
+.user-name-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.user-name{
+    font-size: 16px;
+    width: 100%;
+}
+.user-phone-container{
+    display: flex;
+}
+
+.user-vip-container{
+    display: flex;
+    align-items: center;
+    width: 200px;
+}
+.user-vip{
+    font-size: 10px;
+    background-color: #c7c7c7;
+    padding: 1px 5px;
+    color: white;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.vip{
+    background-color: #389cdb;
+}
+
+.user-vip-msg{
+    color: #c7c7c7;
+}
+
+.user-phone{
+    color: #c7c7c7;
+    margin-right: 10px;
+}
+
+.item-container{
+    margin-top: 10px;
+    background-color: white;
+    padding: 0 10px;
+}
+
+.icon-color{
+    color: #389cdb !important;
+}
+
+.btn-customer{
+    background-color: white;
+    display: inline;
+    padding: 0;
+}
