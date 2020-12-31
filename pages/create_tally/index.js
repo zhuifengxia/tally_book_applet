@@ -22,6 +22,8 @@ Page({
       const data = await promisic(wx.login)();
       const user_info = await userModel.userLogin(data.code);
       wx.setStorageSync("web_user_info", user_info.user_info);
+    } else {
+      //获取记账分类信息
     }
   },
 

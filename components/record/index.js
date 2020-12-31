@@ -18,9 +18,11 @@ Component({
    */
   methods: {
     onTap(event) {
-      wx.navigateTo({
-        url: `/pages/create_tally/index`
-      });
+      this.triggerEvent(
+        "create",
+        {},
+        {}
+      );
     },
   }
 })

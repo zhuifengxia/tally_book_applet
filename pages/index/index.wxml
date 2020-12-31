@@ -1,7 +1,7 @@
 <view class="container">
     <view class="header-container">
-        <view class="type-container">
-            <text>全部类型</text>
+        <view class="type-container" bind:tap="showType" data-type="0">
+            <text>{{seltype.typename}}</text>
             <view class="line"></view>
             <image src="../../images/common/type-icon.png" />
         </view>
@@ -11,8 +11,12 @@
                 <image src="../../images/common/down-icon.png" />
             </view>
             <view class="money-container">
-                <view>总支出¥7000.00</view>
-                <view>总收入¥7100.00</view>
+                <view wx:if="{{seltype.datatype!=3}}" style="margin-right:10px">
+                    {{seltype.typename!="全部类型"?seltype.typename:""}} 总支出¥7000.00
+                </view>
+                <view wx:if="{{seltype.datatype!=2}}">
+                    {{seltype.typename!="全部类型"?seltype.typename:""}} 总收入¥7100.00
+                </view>
             </view>
         </view>
     </view>
@@ -30,5 +34,78 @@
         <l-loading show="{{isLoading}}" color="#8DB8FF" type="change" l-container-class="{{isLoading?'loading-container':''}}"></l-loading>
         <view wx:if="{{!isLoading}}" class="load-msg">上滑加载更多~</view>
     </view>
-    <m-record></m-record>
+    <l-popup show="{{typeDivShow}}" content-align="bottom" locked="{{true}}">
+        <scroll-view class="type-show-content" scroll-y="{{true}}">
+            <view class="type-show-header">
+                <l-icon name="close" size="30" color="gray" bind:tap="showType" data-type="1" />
+                <text>请选择类型</text>
+            </view>
+            <view class="type-show-container">
+                <view class="type-item {{seltype.typeid==0?'type-item-active':''}}" bind:tap="showType" data-type="1" data-id="0" data-typename="全部类型">
+                    全部类型
+                </view>
+                <view class="type-show-type">
+                    <text class="type-title">支出</text>
+                    <view class="type-list">
+                        <block wx:for="{{typeList.pay_type}}" wx:key="id">
+                            <view class="type-item {{seltype.typeid==item.id?'type-item-active':''}}" bind:tap="showType" data-type="2" data-id="{{item.id}}" data-typename="{{item.type_name}}">
+                                {{item.type_name}}
+                            </view>
+                        </block>
+                    </view>
+                </view>
+                <view class="type-show-type">
+                    <text class="type-title">收入</text>
+                    <view class="type-list">
+                        <block wx:for="{{typeList.income_type}}" wx:key="id">
+                            <view class="type-item {{seltype.typeid==item.id?'type-item-active':''}}" bind:tap="showType" data-type="3" data-id="{{item.id}}" data-typename="{{item.type_name}}">
+                                {{item.type_name}}
+                            </view>
+                        </block>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </l-popup>
+    <l-popup show="{{createDivShow}}" content-align="bottom" locked="{{true}}">
+        <view class="create-show-content">
+            <view class="create-show-header">
+                <l-icon name="close" size="30" color="gray" bind:tap="showCreate" />
+                <text></text>
+            </view>
+            <view class="create-tag">
+                <view class="tag-list">
+                    <view class="tag {{createType.type==1?'tag-pay':''}}" bind:tap="tagChange" data-type="1">
+                        支出
+                    </view>
+                    <view class="tag {{createType.type==0?'tag-income':''}}" bind:tap="tagChange" data-type="0">
+                        收入
+                    </view>
+                </view>
+                <view class="create-date">
+                    <text>12月31日</text>
+                    <image src="../../images/common/down-icon-1.png" />
+                </view>
+            </view>
+            <view class="create-msg">
+                <text class="price-unit">¥</text>
+                <input class="price-input" catchtouchstart="hideKeybord" />
+            </view>
+            <scroll-view class="create-type-content" scroll-x="{{true}}">
+                <view class="create-type-list">
+                    <block wx:for="{{createType.data}}" wx:key="id">
+                        <view class="create-type-item">
+                            <image class="type-tag {{index==0?(createType.type==0?'type-tag-active1':'type-tag-active'):''}}" src="../../images/common/cloth.png" />
+                            <text>{{item.type_name}}</text>
+                        </view>
+                    </block>
+                </view>
+            </scroll-view>
+            <view class="create-remark">
+                <image />
+                <input placeholder="备注一下" />
+            </view>
+        </view>
+    </l-popup>
+    <m-record bind:create="createTally"></m-record>
 </view>

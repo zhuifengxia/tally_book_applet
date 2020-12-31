@@ -1,6 +1,11 @@
 // pages/index.js
 import { IndexModel } from "../../models/index.js";
 const indexModel = new IndexModel();
+import { UserModel } from "../../models/user.js";
+const userModel = new UserModel();
+import {
+  promisic
+} from '../../util/common.js'
 Page({
 
   /**
@@ -8,7 +13,19 @@ Page({
    */
   data: {
     isLoading: false,
-    dataList: null
+    dataList: null,
+    typeDivShow: false,
+    createDivShow: false,
+    typeList: null,
+    seltype: {
+      typeid: 0,
+      typename: "全部类型",
+      datatype: 0
+    },
+    createType: {
+      data: null,
+      type: 1
+    }
   },
 
   /**
@@ -22,69 +39,70 @@ Page({
         title: '加载中',
       });
       //加载数据
-      const res_data = indexModel.getIndex();
+      const res_data = indexModel.getIndex(0);
       res_data.then(data => {
         this.setData({
-          banners: data.banner,
-          data_num: data.data_num,
-          news: data.news,
-          news_data: data.news_data,
-          attract_data: data.attract_data,
-          transfer_data: data.transfer_data,
-          rent_data: data.rent_data,
-          sell_data: data.sell_data,
-          hot_phone: data.hot_phone
+          typeList: data.types,
+          createType: { data: data.types.pay_type, type: 1 }
         });
         wx.hideLoading();
       })
     }
   },
-  //招商加盟更多
-  attractMore: function () {
-    wx.navigateTo({
-      url: '/pages/attract/index'
-    })
-  },
-  //商铺查看更多
-  shopMore: function (e) {
-    let type = e.currentTarget.dataset.type;
-    wx.reLaunch({
-      url: '/pages/shop/index?type=' + type,
-    })
-  },
-  //成功案例
-  caseMore: function (e) {
-    wx.navigateTo({
-      url: '/pages/success_case/index',
-    })
-  },
-  createShop: function (e) {
-    let datatype = e.currentTarget.dataset.type;
+  async createTally(e) {
     let user_info = wx.getStorageSync('web_user_info');
     if (!user_info) {
-      wx.reLaunch({
-        url: '/pages/login/index',
+      wx.showToast({
+        title: "您需要先授权登录",
+        icon: "none",
+        duration: 2000
       });
+      const data = await promisic(wx.login)();
+      const user_info = await userModel.userLogin(data.code);
+      wx.setStorageSync("web_user_info", user_info.user_info);
     } else {
-      wx.navigateTo({
-        url: '/pages/create_shop/index?type=' + datatype,
+      this.setData({
+        createDivShow: true
       });
     }
   },
 
-  //城市切换
-  changeCity: function (e) {
-    wx.navigateTo({
-      url: '/pages/city/index',
-    })
+  //类型展示/隐藏
+  showType: function (e) {
+    let type = e.currentTarget.dataset.type;
+    let isshow = true;
+    let seltype = this.data.seltype;
+    if (type > 0) {
+      isshow = false;
+      seltype.typeid = e.currentTarget.dataset.id;
+      seltype.typename = e.currentTarget.dataset.typename;
+      seltype.datatype = type;
+      //请求数据
+      const res_data = indexModel.getIndex(seltype.typeid);
+    }
+    this.setData({
+      typeDivShow: isshow,
+      seltype: seltype
+    });
   },
-  //资讯详情（成功案例详情）
-  newDetail: function (e) {
-    let index = e.detail.index;
-    let id = this.data.news_data[index]['id'];
-    wx.navigateTo({
-      url: `/pages/shop_detail/index?id=${id}&datatype=0`
-    })
+  hideKeybord: function (e) {
+    wx.hideKeyboard();
+  },
+  //创建记账显示/隐藏
+  showCreate: function (e) {
+    this.setData({
+      createDivShow: false
+    });
+  },
+  tagChange: function (e) {
+    let type = e.currentTarget.dataset.type;
+    let typedata = this.data.typeList.income_type;
+    if (type == 1) {
+      typedata = this.data.typeList.pay_type;
+    }
+    this.setData({
+      createType: { data: typedata, type: type }
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

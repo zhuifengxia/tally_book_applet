@@ -2,13 +2,14 @@ import { HTTP } from "../util/http-p.js";
 
 class IndexModel extends HTTP {
   //小程序首页数据
-  getIndex() {
+  getIndex(typeid) {
     let user_info = this._getUserData();
     return this.request({
       url: "tally/index",
       method: "GET",
       data: {
-        token: user_info.token
+        token: user_info.token,
+        typeid: typeid
       }
     });
   }
