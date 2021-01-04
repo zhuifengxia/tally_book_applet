@@ -2,39 +2,31 @@
     <view class="item-container">
         <view class="item-header">
             <view class="item-date">
-                <text>12月30日</text>
-                <text>今天</text>
+                <text>{{data.date}}</text>
+                <text>{{data.date_msg}}</text>
             </view>
             <view class="item-count">
                 <view class="item-msg">
                     <text>支</text>
-                    <text>1.00</text>
+                    <text>{{data.pay_count}}</text>
                 </view>
                 <view class="item-msg">
                     <text>收</text>
-                    <text>1.00</text>
+                    <text>{{data.income_count}}</text>
                 </view>
             </view>
         </view>
-        <view class="item-money">
-            <view>
-                <image src="../images/cloth.png" />
-                <view class="item-type">
-                    <text class="type-name">服饰美容</text>
-                    <text>12:36</text>
+        <block wx:for="{{data.details}}" wx:key="id">
+            <view class="item-money">
+                <view>
+                    <image src="../images/cloth.png" />
+                    <view class="item-type">
+                        <text class="type-name">{{item.type_name}}</text>
+                        <text>12:36</text>
+                    </view>
                 </view>
+                <text>-100.00</text>
             </view>
-            <text>-100.00</text>
-        </view>
-        <view class="item-money">
-            <view>
-                <image src="../images/cloth.png" />
-                <view class="item-type">
-                    <text class="type-name">服饰美容</text>
-                    <text>12:36</text>
-                </view>
-            </view>
-            <text>-100.00</text>
-        </view>
+        </block>
     </view>
 </view>

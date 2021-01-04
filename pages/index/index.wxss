@@ -58,7 +58,6 @@
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    background-color: white;
     margin: 10px;
     width: 95%;
 }
@@ -152,7 +151,7 @@
 
 .create-show-content{
     width: 100%;
-    height: 470px;
+    height: 510px;
     background-color: white;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -254,10 +253,10 @@
     align-items: center;
     width: 50px;
 }
-.create-type-item .type-tag-active{
+.type-tag-active{
     background-color: #8DB8FF !important;
 }
-.create-type-item .type-tag-active1{
+.type-tag-active1{
     background-color: #FFBE00 !important;
 }
 .create-type-item .type-tag{
@@ -276,9 +275,71 @@
     width: 90%;
     border-bottom: 1px solid #f1f1f1;
     margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+.create-remark image{
+    width: 20px;
+    height: 20px;
 }
 .create-remark input{
     height: 30px;
     line-height: 30px;
     font-size: 15px;
+}
+
+.keybord-content{
+    background-color:#FAFAFA;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.keybord-container{
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.number-container{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.number-item{
+    background-color: white;
+    width: 29%;
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    text-align: center;
+    padding:8px 0;
+    border-radius: 3px;
+}
+.zero{
+    width: 62%;
+}
+
+.other-container{
+    width: 20%;
+}
+.delete-item{
+    width: 100%;
+}
+.other-container image{
+    width: 28px;
+    height: 20px;
+}
+
+
+.sure-item{
+    width: 100%;
+    background-color: #8DB8FF;
+    height: 138px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
 }

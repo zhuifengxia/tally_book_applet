@@ -7,15 +7,15 @@
         </view>
         <view class="header-main-container">
             <view class="date-container">
-                <text>2020年12月</text>
+                <text>{{seltype.showDate}}</text>
                 <image src="../../images/common/down-icon.png" />
             </view>
             <view class="money-container">
                 <view wx:if="{{seltype.datatype!=3}}" style="margin-right:10px">
-                    {{seltype.typename!="全部类型"?seltype.typename:""}} 总支出¥7000.00
+                    {{seltype.typename!="全部类型"?seltype.typename:""}} 总支出¥{{allMoney.pay}}
                 </view>
                 <view wx:if="{{seltype.datatype!=2}}">
-                    {{seltype.typename!="全部类型"?seltype.typename:""}} 总收入¥7100.00
+                    {{seltype.typename!="全部类型"?seltype.typename:""}} 总收入¥{{allMoney.income}}
                 </view>
             </view>
         </view>
@@ -28,7 +28,7 @@
     <view class="container" wx:else>
         <view class="main-container">
             <block wx:for="{{dataList}}" wx:key="id">
-                <m-detail></m-detail>
+                <m-detail data="{{item}}"></m-detail>
             </block>
         </view>
         <l-loading show="{{isLoading}}" color="#8DB8FF" type="change" l-container-class="{{isLoading?'loading-container':''}}"></l-loading>
@@ -37,7 +37,7 @@
     <l-popup show="{{typeDivShow}}" content-align="bottom" locked="{{true}}">
         <scroll-view class="type-show-content" scroll-y="{{true}}">
             <view class="type-show-header">
-                <l-icon name="close" size="30" color="gray" bind:tap="showType" data-type="1" />
+                <l-icon name="close" size="30" color="gray" bind:tap="showType" data-type="1" data-id="{{seltype.typeid}}" data-typename="{{seltype.typename}}" data-type="{{seltype.datatype}}" />
                 <text>请选择类型</text>
             </view>
             <view class="type-show-container">
@@ -82,29 +82,57 @@
                         收入
                     </view>
                 </view>
-                <view class="create-date">
-                    <text>12月31日</text>
+                <view class="create-date" bind:tap="showDate">
+                    <text>{{createData.showDate}}</text>
                     <image src="../../images/common/down-icon-1.png" />
                 </view>
             </view>
             <view class="create-msg">
                 <text class="price-unit">¥</text>
-                <input class="price-input" catchtouchstart="hideKeybord" />
+                <input class="price-input" catchtouchstart="hideKeybord" value="{{createData.number}}" />
             </view>
             <scroll-view class="create-type-content" scroll-x="{{true}}">
                 <view class="create-type-list">
                     <block wx:for="{{createType.data}}" wx:key="id">
-                        <view class="create-type-item">
-                            <image class="type-tag {{index==0?(createType.type==0?'type-tag-active1':'type-tag-active'):''}}" src="../../images/common/cloth.png" />
+                        <view class="create-type-item" bind:tap="tagitemChange" data-tagid="{{item.id}}">
+                            <image class="type-tag {{item.id==createData.tagid?(createType.type==0?'type-tag-active1':'type-tag-active'):''}}" src="../../images/common/cloth.png" />
                             <text>{{item.type_name}}</text>
                         </view>
                     </block>
                 </view>
             </scroll-view>
             <view class="create-remark">
-                <image />
-                <input placeholder="备注一下" />
+                <image src="../../images/common/remark-icon.png" />
+                <input placeholder="备注一下" bindinput="remarkData" />
             </view>
+            <view class="keybord-content">
+                <view class="keybord-container">
+                    <view class="number-container">
+                        <view class="number-item" bind:tap="numberChange" data-number="1">1</view>
+                        <view class="number-item" bind:tap="numberChange" data-number="2">2</view>
+                        <view class="number-item" bind:tap="numberChange" data-number="3">3</view>
+                        <view class="number-item" bind:tap="numberChange" data-number="4">4</view>
+                        <view class="number-item" bind:tap="numberChange" data-number="5">5</view>
+                        <view class="number-item" bind:tap="numberChange" data-number="6">6</view>
+                        <view class="number-item" bind:tap="numberChange" data-number="7">7</view>
+                        <view class="number-item" bind:tap="numberChange" data-number="8">8</view>
+                        <view class="number-item" bind:tap="numberChange" data-number="9">9</view>
+                        <view class="number-item zero" bind:tap="numberChange" data-number="0">
+                            0
+                        </view>
+                        <view class="number-item" bind:tap="numberChange" data-number=".">.</view>
+                    </view>
+                    <view class="other-container">
+                        <view class="number-item delete-item" bind:tap="numberChange" data-number="-1">
+                            <image src="../../images/common/delete.png" />
+                        </view>
+                        <view bind:tap="submitData" class="sure-item {{createType.type==0?'type-tag-active1':'type-tag-active'}}">
+                            确定
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <l-calendar show="{{ showCalendar }}" show-confirm="{{false}}" color="#8DB8FF" bind:linconfirm="selDate" />
         </view>
     </l-popup>
     <m-record bind:create="createTally"></m-record>

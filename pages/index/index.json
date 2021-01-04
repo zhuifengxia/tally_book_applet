@@ -4,6 +4,7 @@
     "m-detail": "/components/one_detail/index",
     "l-loading": "/miniprogram_npm/lin-ui/loading/index",
     "l-icon": "/miniprogram_npm/lin-ui/icon/index",
+    "l-calendar": "/miniprogram_npm/lin-ui/calendar/index",
     "l-popup": "/miniprogram_npm/lin-ui/popup/index"
   }
 }
