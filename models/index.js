@@ -14,6 +14,16 @@ class IndexModel extends HTTP {
       }
     });
   }
+  getType() {
+    let user_info = this._getUserData();
+    return this.request({
+      url: "tally/type",
+      method: "GET",
+      data: {
+        token: user_info.token
+      }
+    });
+  }
 
   createData(number, tagid, remark, date) {
     let user_info = this._getUserData();

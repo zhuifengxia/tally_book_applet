@@ -60,6 +60,7 @@ Page({
       });
       //加载数据
       this.loadData();
+      this.loadType();
       wx.hideLoading();
     }
 
@@ -67,15 +68,20 @@ Page({
   //加载数据明细
   async loadData() {
     const data = await indexModel.getIndex(this.data.seltype.typeid, this.data.seltype.date);
+    this.setData({
+      dataList: data.details,
+      allMoney: { pay: data.pay_count, income: data.income_count }
+    });
+  },
+  async loadType() {
     let createData = this.data.createData;
     createData.tagid = data.types.pay_type[0]["id"];
+    const data = await indexModel.getType();
     this.setData({
       typeList: data.types,
       createType: { data: data.types.pay_type, type: 1 },
       createData: createData,
-      dataList: data.details,
-      indexDate: data.date_scope,
-      allMoney: { pay: data.pay_count, income: data.income_count }
+      indexDate: data.date_scope
     });
   },
   async createTally(e) {
@@ -201,6 +207,11 @@ Page({
         showCalendar: true
       });
     } else if (type == 0) {
+      let data = this.data.typeList;
+      if (!data) {
+        this.loadType();
+      }
+
       this.setData({
         showDate: true
       });
