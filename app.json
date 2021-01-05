@@ -2,8 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/user/index",
-    "pages/login/index",
-    "pages/create_tally/index"
+    "pages/login/index"
   ],
   "window": {
     "navigationBarTitleText": "小莫记账",

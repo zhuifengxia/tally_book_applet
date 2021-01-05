@@ -37,7 +37,7 @@
     <l-popup show="{{typeDivShow}}" content-align="bottom" locked="{{true}}">
         <scroll-view class="type-show-content" scroll-y="{{true}}">
             <view class="type-show-header">
-                <l-icon name="close" size="30" color="gray" bind:tap="showType" data-type="1" data-id="{{seltype.typeid}}" data-typename="{{seltype.typename}}" data-type="{{seltype.datatype}}" />
+                <l-icon name="close" size="30" color="gray" bind:tap="showType" data-type="{{seltype.datatype}}" data-id="{{seltype.typeid}}" data-typename="{{seltype.typename}}" />
                 <text>请选择类型</text>
             </view>
             <view class="type-show-container">

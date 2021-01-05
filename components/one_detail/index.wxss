@@ -60,13 +60,18 @@
     align-items: center;
 }
 
-.item-money image{
+.item-money .item-icon{
     width: 20px;
     height: 20px;
     padding: 8px;
-    background-color: #09BB07;
     border-radius: 100%;
     margin-right: 10px;
+}
+.item-money .item-icon-pay{
+    background-color: #8DB8FF;
+}
+.item-money .item-icon-income{
+    background-color: #FFBE00;
 }
 
 .item-money .item-type{

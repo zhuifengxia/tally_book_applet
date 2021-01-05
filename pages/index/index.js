@@ -56,7 +56,6 @@ Page({
       wx.showLoading({
         title: '加载中',
       });
-
       //加载数据
       this.loadData();
       wx.hideLoading();
@@ -95,6 +94,7 @@ Page({
         createDivShow: true,
         createData: createData
       });
+      this.loadData();
     }
   },
 
@@ -219,7 +219,8 @@ Page({
       });
       this.setData({
         createDivShow: false
-      })
+      });
+      this.loadData();
     }
   },
   /**

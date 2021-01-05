@@ -19,13 +19,13 @@
         <block wx:for="{{data.details}}" wx:key="id">
             <view class="item-money">
                 <view>
-                    <image src="../images/cloth.png" />
+                    <image class="item-icon {{item.money_type==0?'item-icon-income':'item-icon-pay'}}" src="../images/cloth.png" />
                     <view class="item-type">
                         <text class="type-name">{{item.type_name}}</text>
-                        <text>12:36</text>
+                        <text>{{item.time}}</text>
                     </view>
                 </view>
-                <text>-100.00</text>
+                <text>{{item.money_type==0?"+":"-"}}{{item.money_num}}</text>
             </view>
         </block>
     </view>

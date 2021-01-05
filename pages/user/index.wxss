@@ -6,8 +6,11 @@
     flex-direction: row;
     background-color: white;
     padding: 10px;
+    align-items: center;
 }
-
+.avatar-bg{
+    background-color: #8DB8FF !important;
+}
 .user-data{
     display: flex;
     flex-direction: column;
@@ -29,29 +32,6 @@
     display: flex;
 }
 
-.user-vip-container{
-    display: flex;
-    align-items: center;
-    width: 200px;
-}
-.user-vip{
-    font-size: 10px;
-    background-color: #c7c7c7;
-    padding: 1px 5px;
-    color: white;
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    margin-right: 5px;
-}
-
-.vip{
-    background-color: #389cdb;
-}
-
-.user-vip-msg{
-    color: #c7c7c7;
-}
 
 .user-phone{
     color: #c7c7c7;
@@ -65,11 +45,32 @@
 }
 
 .icon-color{
-    color: #389cdb !important;
+    color: #8DB8FF !important;
 }
 
 .btn-customer{
     background-color: white;
     display: inline;
     padding: 0;
+}
+
+.data-container{
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #f1f1f1;
+    padding: 10px 0;
+}
+.data-container .data-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.data-item :first-child{
+    font-weight: bold;
+}
+
+.data-container .data-item .item-text{
+    color: #c7c7c7;
+    margin-top: 5px;
 }

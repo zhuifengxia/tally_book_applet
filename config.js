@@ -1,5 +1,5 @@
 const config = {
-  api_base_url: "http://api.frp.liuxiaomo.cn:7001/api/"
+  api_base_url: "https://liuxiaomo.cn/api/"
 };
 
 export { config }
