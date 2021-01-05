@@ -86,9 +86,9 @@ Page({
         icon: "none",
         duration: 2000
       });
-      const data = await promisic(wx.login)();
-      const user_info = await userModel.userLogin(data.code);
-      wx.setStorageSync("web_user_info", user_info.user_info);
+      wx.reLaunch({
+        url: '/pages/user/index',
+      });
     } else {
       let createData = this.data.createData;
       createData.date = formatDate(0);

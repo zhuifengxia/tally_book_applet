@@ -33,14 +33,44 @@ Page({
     wx.showLoading({
       title: '登录中',
     });
-    const data = await promisic(wx.login)();
-    const user_info = await userModel.userLogin(data.code);
-    wx.setStorageSync("web_user_info", user_info.user_info);
+    const res = await promisic(wx.getSetting)();
+    var that = this;
+
+
+    if (res.authSetting['scope.userInfo']) {
+      const data = await promisic(wx.login)();
+      const user_info = await userModel.userLogin(data.code);
+      wx.setStorageSync("web_user_info", user_info.user_info);
+      that.setData({
+        isLogin: true,
+        user_info: user_info.user_info
+      });
+
+    } else {
+      const data = await promisic(wx.login)();
+      const user_info = await userModel.userLogin(data.code);
+      wx.setStorageSync("web_user_info", user_info.user_info);
+      that.setData({
+        isLogin: true,
+        user_info: user_info.user_info
+      });
+      wx.authorize({
+        scope: 'scope.userInfo',
+        success() {
+          console.log("aaa");
+          // const data = promisic(wx.login)();
+          // const user_info = userModel.userLogin(data.code);
+          // wx.setStorageSync("web_user_info", user_info.user_info);
+          // that.setData({
+          //   isLogin: true,
+          //   user_info: user_info.user_info
+          // });
+        }
+      })
+    }
+
     wx.hideLoading();
-    this.setData({
-      isLogin: true,
-      user_info: user_info.user_info
-    });
+
   },
   //数据操作
   operType: function (options) {
