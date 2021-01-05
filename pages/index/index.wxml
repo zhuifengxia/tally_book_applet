@@ -1,12 +1,12 @@
 <view class="container">
     <view class="header-container">
-        <view class="type-container" bind:tap="showType" data-type="0">
+        <view class="type-container" bind:tap="showType" data-type="-1">
             <text>{{seltype.typename}}</text>
             <view class="line"></view>
             <image src="../../images/common/type-icon.png" />
         </view>
         <view class="header-main-container">
-            <view class="date-container">
+            <view class="date-container" bind:tap="showDate" data-type="0">
                 <text>{{seltype.showDate}}</text>
                 <image src="../../images/common/down-icon.png" />
             </view>
@@ -34,7 +34,7 @@
         <l-loading show="{{isLoading}}" color="#8DB8FF" type="change" l-container-class="{{isLoading?'loading-container':''}}"></l-loading>
         <view wx:if="{{!isLoading}}" class="load-msg">上滑加载更多~</view>
     </view>
-    <l-popup show="{{typeDivShow}}" content-align="bottom" locked="{{true}}">
+    <l-popup show="{{typeDivShow}}" content-align="bottom">
         <scroll-view class="type-show-content" scroll-y="{{true}}">
             <view class="type-show-header">
                 <l-icon name="close" size="30" color="gray" bind:tap="showType" data-type="{{seltype.datatype}}" data-id="{{seltype.typeid}}" data-typename="{{seltype.typename}}" />
@@ -82,7 +82,7 @@
                         收入
                     </view>
                 </view>
-                <view class="create-date" bind:tap="showDate">
+                <view class="create-date" bind:tap="showDate" data-type="1">
                     <text>{{createData.showDate}}</text>
                     <image src="../../images/common/down-icon-1.png" />
                 </view>
@@ -134,6 +134,28 @@
             </view>
             <l-calendar show="{{ showCalendar }}" show-confirm="{{false}}" color="#8DB8FF" bind:linconfirm="selDate" />
         </view>
+    </l-popup>
+    <l-popup show="{{showDate}}" content-align="bottom">
+        <scroll-view class="index-selDate" scroll-y="{{true}}">
+            <view class="type-show-header">
+                <l-icon name="close" size="30" color="gray" bind:tap="showDate" data-type="2" />
+                <text>请选择月份</text>
+            </view>
+            <view class="date-list">
+                <block wx:for="{{indexDate}}" wx:key="id">
+                    <view class="date-item">
+                        <view class="date-title">{{item.year}}年</view>
+                        <view class="date-month-list">
+                            <block wx:for="{{item.month}}" wx:key="id" wx:for-item="oneitem">
+                                <view class="month-item" bind:tap="indexselDate" data-key="{{oneitem.key}}" data-msg="{{oneitem.msg}}">
+                                    {{oneitem.value}}
+                                </view>
+                            </block>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </scroll-view>
     </l-popup>
     <m-record bind:create="createTally"></m-record>
 </view>

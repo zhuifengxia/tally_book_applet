@@ -36,6 +36,8 @@ Page({
       showDate: ""
     },
     showCalendar: false,
+    showDate: false,
+    indexDate: null,
     allMoney: { pay: 0, income: 0 }
 
   },
@@ -72,6 +74,7 @@ Page({
       createType: { data: data.types.pay_type, type: 1 },
       createData: createData,
       dataList: data.details,
+      indexDate: data.date_scope,
       allMoney: { pay: data.pay_count, income: data.income_count }
     });
   },
@@ -103,7 +106,7 @@ Page({
     let type = e.currentTarget.dataset.type;
     let isshow = true;
     let seltype = this.data.seltype;
-    if (type > 0) {
+    if (type >= 0) {
       isshow = false;
       seltype.typeid = e.currentTarget.dataset.id;
       seltype.typename = e.currentTarget.dataset.typename;
@@ -179,10 +182,34 @@ Page({
       createData: createData
     })
   },
-  showDate: function (e) {
+  indexselDate: function (e) {
+    let key = e.currentTarget.dataset.key;
+    let msg = e.currentTarget.dataset.msg;
+    let seltype = this.data.seltype;
+    seltype.date = key;
+    seltype.showDate = msg;
     this.setData({
-      showCalendar: true
+      seltype: seltype,
+      showDate: false
     });
+    this.loadData();
+  },
+  showDate: function (e) {
+    let type = e.currentTarget.dataset.type;
+    if (type == 1) {
+      this.setData({
+        showCalendar: true
+      });
+    } else if (type == 0) {
+      this.setData({
+        showDate: true
+      });
+    } else if (type == 2) {
+      this.setData({
+        showDate: false
+      });
+    }
+
   },
   //选择日期
   selDate: function (event) {

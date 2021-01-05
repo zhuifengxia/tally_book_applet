@@ -35,8 +35,13 @@ const transTime = function transTime(unixtime, type) {
   return timeSpanStr;
 }
 
-const formatDate = function (type) {
-  var timestamp = Date.parse(new Date());
+const formatDate = function (type, time = "") {
+  if (time) {
+    var timestamp = time;
+  } else {
+    var timestamp = Date.parse(new Date());
+  }
+
   //获取当前时间
   var n = timestamp;
   var date = new Date(n);

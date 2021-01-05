@@ -2,7 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/user/index",
-    "pages/login/index"
+    "pages/statistical/index"
   ],
   "window": {
     "navigationBarTitleText": "小莫记账",
@@ -23,7 +23,7 @@
         "selectedIconPath": "images/tab/details@highlight.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/statistical/index",
         "text": "统计",
         "iconPath": "images/tab/statistics.png",
         "selectedIconPath": "images/tab/statistics@highlight.png"
