@@ -45,7 +45,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  async onLoad(options) {
+  onLoad: function (options) {
     //查看是否登录，没有就跳转到登录页
     let seltype = this.data.seltype;
     seltype.date = formatDate(2);
@@ -75,14 +75,17 @@ Page({
   },
   async loadType() {
     let createData = this.data.createData;
-    createData.tagid = data.types.pay_type[0]["id"];
-    const data = await indexModel.getType();
-    this.setData({
-      typeList: data.types,
-      createType: { data: data.types.pay_type, type: 1 },
-      createData: createData,
-      indexDate: data.date_scope
-    });
+    let data = this.data.typeList;
+    if (!data) {
+      const data = await indexModel.getType();
+      createData.tagid = data.types.pay_type[0]["id"];
+      this.setData({
+        typeList: data.types,
+        createType: { data: data.types.pay_type, type: 1 },
+        createData: createData,
+        indexDate: data.date_scope
+      });
+    }
   },
   async createTally(e) {
     let user_info = wx.getStorageSync('web_user_info');
@@ -103,12 +106,12 @@ Page({
         createDivShow: true,
         createData: createData
       });
-      this.loadData();
+      this.loadType();
     }
   },
 
   //类型展示/隐藏
-  showType: function (e) {
+  async showType(e) {
     let type = e.currentTarget.dataset.type;
     let isshow = true;
     let seltype = this.data.seltype;
@@ -118,7 +121,13 @@ Page({
       seltype.typename = e.currentTarget.dataset.typename;
       seltype.datatype = type;
       //请求数据
-      const res_data = indexModel.getIndex(seltype.typeid, seltype.date);
+      const data = await indexModel.getIndex(seltype.typeid, seltype.date);
+      this.setData({
+        dataList: data.details,
+        allMoney: { pay: data.pay_count, income: data.income_count }
+      });
+    } else {
+      this.loadType();
     }
     this.setData({
       typeDivShow: isshow,
@@ -188,6 +197,7 @@ Page({
       createData: createData
     })
   },
+  //首页月份选择后触发
   indexselDate: function (e) {
     let key = e.currentTarget.dataset.key;
     let msg = e.currentTarget.dataset.msg;
@@ -207,11 +217,6 @@ Page({
         showCalendar: true
       });
     } else if (type == 0) {
-      let data = this.data.typeList;
-      if (!data) {
-        this.loadType();
-      }
-
       this.setData({
         showDate: true
       });

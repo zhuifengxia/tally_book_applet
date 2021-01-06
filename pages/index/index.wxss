@@ -130,7 +130,7 @@
     background-color: white;
     border-radius: 5px;
     text-align: center;
-    margin:5px;
+    margin:4px;
     font-size: 13px; 
 }
 .type-item-active{
