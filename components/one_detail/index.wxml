@@ -24,8 +24,9 @@
                         <text class="type-name">{{item.type_name}}</text>
                         <text>{{item.time}}</text>
                     </view>
+                    <view class="item-remark">{{item.data_remark}}</view>
                 </view>
-                <text>{{item.money_type==0?"+":"-"}}{{item.money_num}}</text>
+                <text class="item-price">{{item.money_type==0?"+":"-"}}{{item.money_num}}</text>
             </view>
         </block>
     </view>

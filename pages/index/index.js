@@ -194,7 +194,7 @@ Page({
       if (datanumber.length == 0) {
         newstr = "0.";
       } else {
-        newstr = newstr + ".";
+        newstr = datanumber + ".";
       }
     } else {
       newstr = datanumber + number;
