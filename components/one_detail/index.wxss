@@ -32,7 +32,7 @@
 .item-count{
     display: flex;
     justify-content: space-between;
-    width: 40%;
+    width: 50%;
 }
 .item-msg{
     display: flex;

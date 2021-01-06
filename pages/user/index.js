@@ -35,8 +35,6 @@ Page({
     });
     const res = await promisic(wx.getSetting)();
     var that = this;
-
-
     if (res.authSetting['scope.userInfo']) {
       const data = await promisic(wx.login)();
       const user_info = await userModel.userLogin(data.code);
@@ -92,8 +90,15 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  async onShow() {
+    const user_info = await userModel.userData();
+    let user = this.data.user_info;
+    user.income_count = user_info.income_count;
+    user.create_count = user_info.create_count;
+    user.create_day = user_info.create_day;
+    this.setData({
+      user_info: user
+    });
   },
 
   /**

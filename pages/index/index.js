@@ -117,15 +117,22 @@ Page({
     let seltype = this.data.seltype;
     if (type >= 0) {
       isshow = false;
-      seltype.typeid = e.currentTarget.dataset.id;
-      seltype.typename = e.currentTarget.dataset.typename;
-      seltype.datatype = type;
-      //请求数据
-      const data = await indexModel.getIndex(seltype.typeid, seltype.date);
-      this.setData({
-        dataList: data.details,
-        allMoney: { pay: data.pay_count, income: data.income_count }
-      });
+      if (seltype.typeid != e.currentTarget.dataset.id) {
+        seltype.typeid = e.currentTarget.dataset.id;
+        seltype.typename = e.currentTarget.dataset.typename;
+        seltype.datatype = type;
+        this.setData({
+          typeDivShow: isshow,
+          seltype: seltype
+        });
+        //请求数据
+        const data = await indexModel.getIndex(seltype.typeid, seltype.date);
+        this.setData({
+          dataList: data.details,
+          allMoney: { pay: data.pay_count, income: data.income_count }
+        });
+      }
+
     } else {
       this.loadType();
     }
@@ -217,6 +224,7 @@ Page({
         showCalendar: true
       });
     } else if (type == 0) {
+      this.loadType();
       this.setData({
         showDate: true
       });
@@ -277,7 +285,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let user_info = wx.getStorageSync('web_user_info');
+    if (user_info) {
+      wx.showLoading({
+        title: '加载中',
+      });
+      //加载数据
+      this.loadData();
+      this.loadType();
+      wx.hideLoading();
+    }
   },
 
   /**

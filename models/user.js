@@ -14,6 +14,19 @@ class UserModel extends HTTP {
         });
     }
 
+    //用户登录
+    userData() {
+        let user_info = this._getUserData();
+        let url = "tally/user";
+        return this.request({
+            url: url,
+            method: "post",
+            data: {
+                token: user_info.token,
+            }
+        });
+    }
+
 
 
     //获取用户信息
