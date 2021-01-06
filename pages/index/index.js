@@ -322,7 +322,16 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    let user_info = wx.getStorageSync('web_user_info');
+    if (user_info) {
+      wx.showLoading({
+        title: '加载中',
+      });
+      //加载数据
+      this.loadData();
+      this.loadType();
+      wx.hideLoading();
+    }
   },
 
   /**

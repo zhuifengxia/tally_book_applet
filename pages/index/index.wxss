@@ -7,7 +7,7 @@
 .header-container{
     background-color: #8DB8FF;
     height: 70px;
-    padding:10px;
+    padding:10px 0;
     width: 100%;
 }
 .type-container{
