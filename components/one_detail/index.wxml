@@ -21,7 +21,7 @@
                 <view slot="left" class="left">
                     <view class="item-money">
                         <view>
-                            <image class="item-icon {{item.money_type==0?'item-icon-income':'item-icon-pay'}}" src="../images/cloth.png" />
+                            <image class="item-icon {{item.money_type==0?'item-icon-income':'item-icon-pay'}}" src="../../images/common/tag/{{item.type_icon}}.png" />
                             <view class="item-type">
                                 <text class="type-name">{{item.type_name}}</text>
                                 <text>{{item.time}}</text>

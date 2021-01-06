@@ -95,7 +95,7 @@
                 <view class="create-type-list">
                     <block wx:for="{{createType.data}}" wx:key="id">
                         <view class="create-type-item" bind:tap="tagitemChange" data-tagid="{{item.id}}">
-                            <image class="type-tag {{item.id==createData.tagid?(createType.type==0?'type-tag-active1':'type-tag-active'):''}}" src="../../images/common/cloth.png" />
+                            <image class="type-tag {{item.id==createData.tagid?(createType.type==0?'type-tag-active1':'type-tag-active'):''}}" src="../../images/common/tag/{{item.type_icon}}.png" />
                             <text>{{item.type_name}}</text>
                         </view>
                     </block>
