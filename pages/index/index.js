@@ -102,9 +102,13 @@ Page({
       let createData = this.data.createData;
       createData.date = formatDate(0);
       createData.showDate = formatDate(1);
+      createData.remark="";
+      createData.number="";
+      createData.tagid=0;
       this.setData({
         createDivShow: true,
-        createData: createData
+        createData: createData,
+        createType: { data: this.data.typeList.pay_type, type: 1 },
       });
       this.loadType();
     }
