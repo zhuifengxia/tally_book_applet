@@ -210,9 +210,6 @@ Page({
     var that = this;
     wx.showModal({
       content: "删除后无法恢复，是否删除？",
-      cancelText: "取消",
-      confirmText: "删除",
-      confirmColor: "red",
       success(res) {
         if (res.confirm) {
           indexModel.deleteTally(id);

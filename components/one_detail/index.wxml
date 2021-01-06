@@ -17,7 +17,7 @@
             </view>
         </view>
         <block wx:for="{{data.details}}" wx:key="id">
-            <l-slide-view height="140" slide-width="170" auto-close="{{true}}">
+            <l-slide-view height="140" width="750" slide-width="170" auto-close="{{true}}">
                 <view slot="left" class="left">
                     <view class="item-money">
                         <view>
