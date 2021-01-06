@@ -18,6 +18,13 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onTap(event) {
+      let id = event.currentTarget.dataset.id;
+      this.triggerEvent(
+        "delete",
+        { id: id, },
+        {}
+      );
+    },
   }
 })

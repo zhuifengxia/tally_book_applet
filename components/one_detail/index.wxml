@@ -17,17 +17,28 @@
             </view>
         </view>
         <block wx:for="{{data.details}}" wx:key="id">
-            <view class="item-money">
-                <view>
-                    <image class="item-icon {{item.money_type==0?'item-icon-income':'item-icon-pay'}}" src="../images/cloth.png" />
-                    <view class="item-type">
-                        <text class="type-name">{{item.type_name}}</text>
-                        <text>{{item.time}}</text>
+            <l-slide-view height="140" width="750" slide-width="170" auto-close="{{true}}">
+                <view slot="left" class="left">
+                    <view class="item-money">
+                        <view>
+                            <image class="item-icon {{item.money_type==0?'item-icon-income':'item-icon-pay'}}" src="../images/cloth.png" />
+                            <view class="item-type">
+                                <text class="type-name">{{item.type_name}}</text>
+                                <text>{{item.time}}</text>
+                            </view>
+                            <view class="item-remark">{{item.data_remark}}</view>
+                        </view>
+                        <text class="item-price">
+                            {{item.money_type==0?"+":"-"}}{{item.money_num}}
+                        </text>
                     </view>
-                    <view class="item-remark">{{item.data_remark}}</view>
                 </view>
-                <text class="item-price">{{item.money_type==0?"+":"-"}}{{item.money_num}}</text>
-            </view>
+                <view slot="right" class="right">
+                    <view class="right-delete" bind:tap="onTap" data-id="{{item.id}}">
+                        <l-icon name="delete" size="30" color="white"></l-icon>
+                    </view>
+                </view>
+            </l-slide-view>
         </block>
     </view>
 </view>

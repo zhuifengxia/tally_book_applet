@@ -1,4 +1,7 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "l-icon": "/miniprogram_npm/lin-ui/icon/index",
+    "l-slide-view": "/miniprogram_npm/lin-ui/slide-view/index"
+  }
 }

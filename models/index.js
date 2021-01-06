@@ -24,6 +24,17 @@ class IndexModel extends HTTP {
       }
     });
   }
+  deleteTally(id) {
+    let user_info = this._getUserData();
+    return this.request({
+      url: "tally/delete",
+      method: "POST",
+      data: {
+        token: user_info.token,
+        id: id
+      }
+    });
+  }
 
   createData(number, tagid, remark, date) {
     let user_info = this._getUserData();

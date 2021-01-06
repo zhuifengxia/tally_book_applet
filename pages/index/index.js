@@ -204,6 +204,30 @@ Page({
       createData: createData
     })
   },
+  //删除
+  deleteData: function (event) {
+    let id = event.detail.id;
+    var that = this;
+    wx.showModal({
+      content: "删除后无法恢复，是否删除？",
+      cancelText: "取消",
+      confirmText: "删除",
+      confirmColor: "red",
+      success(res) {
+        if (res.confirm) {
+          indexModel.deleteTally(id);
+          wx.showToast({
+            title: "删除成功",
+            icon: "none",
+            duration: 2000
+          });
+          that.loadData();
+        } else if (res.cancel) {
+          return;
+        }
+      }
+    });
+  },
   //首页月份选择后触发
   indexselDate: function (e) {
     let key = e.currentTarget.dataset.key;
