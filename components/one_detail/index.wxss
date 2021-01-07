@@ -79,6 +79,7 @@
     display: flex;
     flex-direction: column;
     color: #d2d2d2;
+    width: 70px;
 }
 
 .item-money .item-type .type-name{
@@ -87,7 +88,6 @@
 }
 .item-remark{
     color: #d2d2d2;
-    margin-left: 20px;
 }
 .item-price{
     font-weight: bold;

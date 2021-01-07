@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "m-type-stat": "/components/one_type_stat/index"
+  }
 }

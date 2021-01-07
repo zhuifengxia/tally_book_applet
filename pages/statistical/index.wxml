@@ -1,2 +1,38 @@
-<!--pages/statistical/index.wxml-->
-<text>pages/statistical/index.wxml</text>
+<view class="container">
+    <view class="top-container">
+        <view class="date-container">
+            <text>2021年1月</text>
+            <text class="line">|</text>
+            <image src="../../images/common/date-icon.png" />
+        </view>
+        <view class="money-container">
+            <text class="pay-msg">共支出</text>
+            <view style="display:flex">
+                <text class="pay-price-unit">¥</text>
+                <text class="pay-price">{{pay_count}}</text>
+            </view>
+            <text class="income-msg">共收入¥{{incom_count}}</text>
+        </view>
+    </view>
+    <view class="bottom-container">
+        <view class="title-container">
+            <text class="title-title">收支构成</text>
+            <view class="type-tag">
+                <view class="tag {{moneyType==1?'tag-pay':''}}" bind:tap="tagChange" data-type="1">
+                    支出
+                </view>
+                <view class="tag {{moneyType==0?'tag-income':''}}" bind:tap="tagChange" data-type="0">
+                    收入
+                </view>
+            </view>
+        </view>
+        <view class="tag-data-container">
+            <block wx:for="{{moneyType==1?pay_data:income_data}}" wx:key="id">
+                <m-type-stat data="{{item}}"></m-type-stat>
+            </block>
+            <view class="no-data" wx:if="{{!(moneyType==1?pay_data:income_data)}}">
+                暂无{{moneyType==1?"支出":"收入"}}数据
+            </view>
+        </view>
+    </view>
+</view>

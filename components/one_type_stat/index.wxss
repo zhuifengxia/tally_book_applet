@@ -1,0 +1,37 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 0;
+    align-items: center;
+}
+.type-container{
+    display: flex;
+    align-items: center;
+    width:25%;
+}
+.type-container image{
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    border-radius: 100%;
+    margin-right: 5px;
+}
+.item-icon-pay{
+    background-color: #8DB8FF;
+}
+.item-icon-income{
+    background-color: #FFBE00;
+}
+.progress-container{
+    width:50%;
+}
+.price-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width:20%;
+}
+.progress-text{
+    font-size: 12px;
+}

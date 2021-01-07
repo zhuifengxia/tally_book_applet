@@ -1,0 +1,13 @@
+<view class="container">
+    <view class="type-container">
+        <image class="item-icon {{data.money_type==0?'item-icon-income':'item-icon-pay'}}" src="../../images/common/tag/{{data.type_icon}}.png" />
+        <text class="type-name">{{data.type_name}}</text>
+    </view>
+    <view class="progress-container">
+        <l-progress percent="{{data.percent}}" show-info="{{true}}" text-position="left" text-color="gray" active-color="{{data.money_type==0?'#FFBE00':'#8DB8FF'}}" l-text-class="progress-text"></l-progress>
+    </view>
+    <view class="price-container">
+        <text>¥{{data.money_num}}</text>
+        <l-icon name="right" size="25" color="gray"></l-icon>
+    </view>
+</view>

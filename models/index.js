@@ -51,6 +51,17 @@ class IndexModel extends HTTP {
     });
   }
 
+  getStatistic(date) {
+    let user_info = this._getUserData();
+    return this.request({
+      url: "tally/statistic",
+      method: "POST",
+      data: {
+        token: user_info.token,
+        date: date
+      }
+    });
+  }
 
   //获取用户信息
   _getUserData() {

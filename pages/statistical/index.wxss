@@ -1,1 +1,114 @@
-/* pages/statistical/index.wxss */
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.top-container{
+    width: 100%;
+    height: 200px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.date-container{
+    display: flex;
+    background-color: #F6F6F6;
+    padding: 5px;
+    justify-content: space-around;
+    align-items: center;
+    width: 100px;
+    border-radius: 3px;
+}
+.date-container image{
+    width: 20px;
+    height: 20px;
+}
+.date-container .line{
+    color: #dedede;
+}
+.money-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+}
+
+.money-container .pay-msg{
+    color:#8DB8FF;
+    font-size: 15px;
+    font-weight: bold;
+}
+.money-container .pay-price{
+    color:#8DB8FF;
+    font-size: 24px;
+    font-weight: bold;
+}
+.money-container .pay-price-unit{
+    color:#8DB8FF;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 3px;
+}
+.money-container .income-msg{
+    color:#dedede;
+    font-size: 15px;
+}
+.bottom-container{
+    margin-top: 10px;
+    background-color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.title-container{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title-title{
+    font-size: 15px;
+}
+
+.title-container .type-tag{
+    display: flex;
+    width: 100px;
+    justify-content: space-between;
+}
+.tag{
+    border-radius: 3px;
+    padding: 5px 10px;
+    background-color: #F1F1F1;
+    color: gray;
+}
+.tag-pay{
+    color: #8DB8FF !important;
+    background-color:rgba(141, 184, 255,.3) !important;
+}
+.tag-income{
+    color:#FFBE00 !important;
+    background-color: rgba(255, 190, 0,.3) !important;
+}
+
+.tag-data-container{
+    width: 90%;
+    border-bottom: 1px solid #F1F1F1;
+}
+
+.no-data{
+    width: 90%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+    font-size: 14px;
+}
