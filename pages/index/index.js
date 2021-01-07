@@ -102,9 +102,9 @@ Page({
       let createData = this.data.createData;
       createData.date = formatDate(0);
       createData.showDate = formatDate(1);
-      createData.remark="";
-      createData.number="";
-      createData.tagid=0;
+      createData.remark = "";
+      createData.number = "";
+      createData.tagid = 0;
       this.setData({
         createDivShow: true,
         createData: createData,

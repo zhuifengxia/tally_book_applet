@@ -32,7 +32,7 @@
   "compileType": "miniprogram",
   "libVersion": "2.11.0",
   "appid": "wxd9ec25fd88069a76",
-  "projectname": "soupu_applet",
+  "projectname": "tally_book_applet",
   "debugOptions": {
     "hidedInDevtools": []
   },
