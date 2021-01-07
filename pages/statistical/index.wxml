@@ -1,6 +1,6 @@
 <view class="container">
     <view class="top-container">
-        <view class="date-container">
+        <view class="date-container" bind:tap="showDate" data-type="0">
             <text>2021年1月</text>
             <text class="line">|</text>
             <image src="../../images/common/date-icon.png" />
@@ -14,7 +14,7 @@
             <text class="income-msg">共收入¥{{incom_count}}</text>
         </view>
     </view>
-    <view class="bottom-container">
+    <view class="bottom-container" wx:if="{{show_data||top_data}}">
         <view class="title-container">
             <text class="title-title">收支构成</text>
             <view class="type-tag">
@@ -27,12 +27,33 @@
             </view>
         </view>
         <view class="tag-data-container">
-            <block wx:for="{{moneyType==1?pay_data:income_data}}" wx:key="id">
+            <block wx:for="{{show_data}}" wx:key="id">
                 <m-type-stat data="{{item}}"></m-type-stat>
             </block>
-            <view class="no-data" wx:if="{{!(moneyType==1?pay_data:income_data)}}">
-                暂无{{moneyType==1?"支出":"收入"}}数据
-            </view>
+            <view class="no-data" wx:if="{{!show_data}}">暂无{{moneyType==1?"支出":"收入"}}数据</view>
         </view>
     </view>
+    <view wx:if="{{!show_data&&!top_data}}" class="no-data-container">暂无数据</view>
+    <l-popup show="{{showDate}}" content-align="bottom">
+        <scroll-view class="index-selDate" scroll-y="{{true}}">
+            <view class="type-show-header">
+                <l-icon name="close" size="30" color="gray" bind:tap="showDate" data-type="1" />
+                <text>请选择月份</text>
+            </view>
+            <view class="date-list">
+                <block wx:for="{{indexDate}}" wx:key="id">
+                    <view class="date-item">
+                        <view class="date-title">{{item.year}}年</view>
+                        <view class="date-month-list">
+                            <block wx:for="{{item.month}}" wx:key="id" wx:for-item="oneitem">
+                                <view class="month-item" bind:tap="indexselDate" data-key="{{oneitem.key}}" data-msg="{{oneitem.msg}}">
+                                    {{oneitem.value}}
+                                </view>
+                            </block>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </scroll-view>
+    </l-popup>
 </view>

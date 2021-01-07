@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "m-type-stat": "/components/one_type_stat/index"
+    "m-type-stat": "/components/one_type_stat/index",
+    "l-icon": "/miniprogram_npm/lin-ui/icon/index",
+    "l-popup": "/miniprogram_npm/lin-ui/popup/index"
   }
 }

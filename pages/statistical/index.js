@@ -13,6 +13,7 @@ Page({
     moneyType: 1,
     incom_count: "0.00",
     pay_count: "0.00",
+    show_data: null,
     pay_data: null,
     income_data: null,
     top_data: null,
@@ -20,6 +21,8 @@ Page({
       date: "",
       showDate: ""
     },
+    indexDate: null,
+    showDate: false
   },
 
   /**
@@ -36,10 +39,34 @@ Page({
     this.loadData();
 
   },
+  indexselDate: function (e) {
+    let key = e.currentTarget.dataset.key;
+    let msg = e.currentTarget.dataset.msg;
+    let seltype = this.data.seltype;
+    seltype.date = key;
+    seltype.showDate = msg;
+    this.setData({
+      seltype: seltype,
+      showDate: false
+    });
+    this.loadData();
+  },
+  showDate: function (e) {
+    let type = e.currentTarget.dataset.type;
+    let isshow = false;
+    if (type == 0) {
+      isshow = true;
+    }
+    this.setData({
+      showDate: isshow
+    });
+  },
   tagChange: function (e) {
     let type = e.currentTarget.dataset.type;
+    let show_data = type == 1 ? this.data.pay_data : this.data.income_data;
     this.setData({
-      moneyType: type
+      moneyType: type,
+      show_data: show_data
     });
   },
   async loadData() {
@@ -55,7 +82,9 @@ Page({
         pay_count: data.pay_count,
         pay_data: data.pay_data,
         income_data: data.income_data,
-        top_data: data.top_pay
+        top_data: data.top_pay,
+        indexDate: data.date_scope,
+        show_data: data.pay_data
       })
       wx.hideLoading();
     } else {
