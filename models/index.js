@@ -36,7 +36,7 @@ class IndexModel extends HTTP {
     });
   }
 
-  createData(number, tagid, remark, date, id) {
+  createData(number, tagid, remark, date, id = 0) {
     let user_info = this._getUserData();
     return this.request({
       url: "tally/create",
