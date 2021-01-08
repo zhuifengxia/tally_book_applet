@@ -2,6 +2,7 @@
     <view class="type-container">
         <image class="item-icon item-icon-pay" src="../../images/common/tag/{{data.type_icon}}.png" />
         <text class="type-name">{{data.type_name}}</text>
+        <view class="item-remark">{{data.data_remark}}</view>
     </view>
     <view class="date-container">
         <text class="price">-{{data.money_num}}</text>
