@@ -69,3 +69,199 @@
 .delete{
     color: #d81e06;
 }
+
+
+.create-show-content{
+    width: 100%;
+    height: 510px;
+    background-color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create-show-header{
+    display: flex;
+    width: 95%;
+    padding:10px;
+    justify-content: center;
+    line-height: 40px;
+    height: 40px;
+    background-color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.create-show-header text{
+    width: 90%;
+    text-align: center;
+}
+.create-tag{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+.tag-list{
+    display: flex;
+}
+.tag-pay{
+    color: #8DB8FF !important;
+    border:1px solid #8DB8FF !important;
+    background-color:rgba(141, 184, 255,.4) !important;
+    margin-right: 5px;
+}
+.tag-income{
+    color:#FFBE00 !important;
+    border:1px solid #FFBE00 !important;
+    background-color: rgba(255, 190, 0,.4) !important;
+    margin-left: 5px;
+}
+.create-tag .tag{
+    border-radius: 20px;
+    padding: 5px 15px;
+    background-color: #F1F1F1;
+    color: gray;
+
+}
+.create-date{
+    background-color: #F1F1F1;
+    padding: 2px 10px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+.create-date image{
+    width: 10px;
+    height: 10px;
+    margin-left: 5px;
+}
+
+.create-msg{
+    width: 85%;
+    display: flex;
+    margin-top: 20px;
+    border-bottom: 1px solid #dedede;
+    padding-bottom: 5px;
+}
+
+.price-unit{
+    font-weight: bolder;
+    font-size: 40px;
+}
+
+.price-input{
+    width: 90%;
+    font-weight: bolder;
+    font-size: 40px;
+    line-height: 40px;
+    height: 40px;
+}
+.create-type-content{
+    margin-top:10px;
+    margin-left: 6%;
+}
+.create-type-list{
+    width: 210%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.create-type-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50px;
+}
+.type-tag-active{
+    background-color: #8DB8FF !important;
+}
+.type-tag-active1{
+    background-color: #FFBE00 !important;
+}
+.create-type-item .type-tag{
+    width: 20px;
+    height: 20px;
+    padding: 8px;
+    background-color:#F1F1F1;
+    border-radius: 100%;
+    margin-bottom:5px;
+}
+.create-type-item text{
+    color:gray;
+}
+
+.create-remark{
+    width: 90%;
+    border-bottom: 1px solid #f1f1f1;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+.create-remark image{
+    width: 20px;
+    height: 20px;
+}
+.create-remark input{
+    height: 30px;
+    line-height: 30px;
+    font-size: 15px;
+}
+
+.keybord-content{
+    background-color:#FAFAFA;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.keybord-container{
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.number-container{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.number-item{
+    background-color: white;
+    width: 29%;
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    text-align: center;
+    padding:8px 0;
+    border-radius: 3px;
+}
+.zero{
+    width: 62%;
+}
+
+.other-container{
+    width: 20%;
+}
+.delete-item{
+    width: 100%;
+}
+.other-container image{
+    width: 28px;
+    height: 20px;
+}
+
+
+.sure-item{
+    width: 100%;
+    background-color: #8DB8FF;
+    height: 138px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+}

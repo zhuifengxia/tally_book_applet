@@ -36,7 +36,7 @@ class IndexModel extends HTTP {
     });
   }
 
-  createData(number, tagid, remark, date) {
+  createData(number, tagid, remark, date, id) {
     let user_info = this._getUserData();
     return this.request({
       url: "tally/create",
@@ -46,7 +46,8 @@ class IndexModel extends HTTP {
         typeid: tagid,
         number: number,
         remark: remark,
-        date: date
+        date: date,
+        id: id
       }
     });
   }
