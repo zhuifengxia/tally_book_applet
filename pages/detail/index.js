@@ -1,6 +1,9 @@
 // pages/detail/index.js
 import { IndexModel } from "../../models/index.js";
 const indexModel = new IndexModel();
+import {
+  transTime
+} from '../../util/common.js'
 Page({
 
   /**
@@ -29,7 +32,12 @@ Page({
     this.setData({
       detailData: data,
       editData: data
-    })
+    });
+    let editData = this.data.editData;
+    editData.money_num = editData.money_num.slice(0, editData.money_num.length - 3);
+    this.setData({
+      editData: editData
+    });
   },
   //删除
   deleteData: function () {
@@ -105,6 +113,15 @@ Page({
       editData: editData
     })
   },
+  //选择日期
+  selDate: function (event) {
+    let editData = this.data.editData;
+    editData.record_date = transTime(event.detail, 0);
+    editData.showDate = transTime(event.detail, 1);
+    this.setData({
+      editData: editData
+    })
+  },
   //录入数字
   numberChange: function (e) {
     let number = e.currentTarget.dataset.number;
@@ -162,7 +179,7 @@ Page({
         duration: 2000
       });
     } else {
-      // await indexModel.createData(number, editData.type_id, editData.data_remark, editData.record_date, editData.id);
+      await indexModel.createData(number, editData.type_id, editData.data_remark, editData.record_date, editData.id);
       wx.showToast({
         title: "修改成功",
         icon: "none",
