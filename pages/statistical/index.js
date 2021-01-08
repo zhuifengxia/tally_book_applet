@@ -19,7 +19,8 @@ Page({
     top_data: null,
     seltype: {
       date: "",
-      showDate: ""
+      showDate: "",
+      showMonth: ""
     },
     indexDate: null,
     showDate: false
@@ -32,12 +33,18 @@ Page({
     let seltype = this.data.seltype;
     seltype.date = formatDate(2);
     seltype.showDate = formatDate(3);
+    let date = formatDate(3);
+    let month = date.slice(5, date.length - 1);
+    if (month < 10) {
+      month = month.slice(1, month.length);
+    }
+    month = month + "月";
+    seltype.showMonth = month;
     this.setData({
       seltype: seltype
     })
     //加载数据
     this.loadData();
-
   },
   indexselDate: function (e) {
     let key = e.currentTarget.dataset.key;
@@ -45,6 +52,7 @@ Page({
     let seltype = this.data.seltype;
     seltype.date = key;
     seltype.showDate = msg;
+    seltype.showMonth = e.currentTarget.dataset.value;
     this.setData({
       seltype: seltype,
       showDate: false

@@ -187,3 +187,24 @@
     padding-top: 41px;
     font-size: 15px;
 }
+.top-five-container{
+    width: 90%;
+    margin-top: 20px;
+}
+.top-five-container .top-title{
+    color: #dedede;
+    padding: 5px 0;
+}
+.top-five-container .item-top{
+    width: 98%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.top-five-container .item-top m-top-detail{
+    width: 93%;
+}
+.top-five-container .item-num{
+    color:gray;
+    font-size: 15px;
+}

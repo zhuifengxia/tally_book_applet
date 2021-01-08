@@ -1,0 +1,34 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 0;
+    align-items: center;
+}
+.type-container{
+    display: flex;
+    align-items: center;
+}
+.type-container image{
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    border-radius: 100%;
+    margin-right: 5px;
+}
+.item-icon-pay{
+    background-color: #8DB8FF;
+}
+.date-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.date-container .price{
+    font-weight: bold;
+    text-align: right;
+}
+
+.date-container .date{
+    color: #dedede;
+}

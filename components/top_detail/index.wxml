@@ -1,0 +1,10 @@
+<view class="container">
+    <view class="type-container">
+        <image class="item-icon item-icon-pay" src="../../images/common/tag/{{data.type_icon}}.png" />
+        <text class="type-name">{{data.type_name}}</text>
+    </view>
+    <view class="date-container">
+        <text class="price">-{{data.money_num}}</text>
+        <text class="date">{{data.time}}</text>
+    </view>
+</view>

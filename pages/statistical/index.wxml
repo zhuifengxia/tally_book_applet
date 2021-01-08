@@ -1,7 +1,7 @@
 <view class="container">
     <view class="top-container">
         <view class="date-container" bind:tap="showDate" data-type="0">
-            <text>2021年1月</text>
+            <text>{{seltype.showDate}}</text>
             <text class="line">|</text>
             <image src="../../images/common/date-icon.png" />
         </view>
@@ -32,6 +32,15 @@
             </block>
             <view class="no-data" wx:if="{{!show_data}}">暂无{{moneyType==1?"支出":"收入"}}数据</view>
         </view>
+        <view class="top-five-container">
+            <text class="top-title">{{seltype.showMonth}}支出排行</text>
+            <block wx:for="{{top_data}}" wx:key="id">
+                <view class="item-top">
+                    <text class="item-num">{{index+1}}</text>
+                    <m-top-detail data="{{item}}"></m-top-detail>
+                </view>
+            </block>
+        </view>
     </view>
     <view wx:if="{{!show_data&&!top_data}}" class="no-data-container">暂无数据</view>
     <l-popup show="{{showDate}}" content-align="bottom">
@@ -46,7 +55,7 @@
                         <view class="date-title">{{item.year}}年</view>
                         <view class="date-month-list">
                             <block wx:for="{{item.month}}" wx:key="id" wx:for-item="oneitem">
-                                <view class="month-item" bind:tap="indexselDate" data-key="{{oneitem.key}}" data-msg="{{oneitem.msg}}">
+                                <view class="month-item" bind:tap="indexselDate" data-key="{{oneitem.key}}" data-value="{{oneitem.value}}" data-msg="{{oneitem.msg}}">
                                     {{oneitem.value}}
                                 </view>
                             </block>
