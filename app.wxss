@@ -1,6 +1,9 @@
 page{
   font-size:12px;
   background-color: #EDEDED;
+  height: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 .green{
   color: #09BB07;

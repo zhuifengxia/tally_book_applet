@@ -241,7 +241,7 @@
 }
 .create-type-list{
     width: 210%;
-    height: 55px;
+    height: 60px;
     display: flex;
     flex-direction: row;
     justify-content: left;
