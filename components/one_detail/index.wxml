@@ -19,7 +19,7 @@
         <block wx:for="{{data.details}}" wx:key="id">
             <l-slide-view height="140" width="750" slide-width="170" auto-close="{{true}}">
                 <view slot="left" class="left">
-                    <view class="item-money">
+                    <view class="item-money" bind:tap="detail" data-id="{{item.id}}">
                         <view>
                             <image class="item-icon {{item.money_type==0?'item-icon-income':'item-icon-pay'}}" src="../../images/common/tag/{{item.type_icon}}.png" />
                             <view class="item-type">

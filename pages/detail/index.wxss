@@ -1,0 +1,71 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    background-color: white;
+    margin: 50px auto;
+    border-radius: 10px;
+    padding: 30px 20px 0 20px;
+    height: 230px;
+    font-size: 15px;
+}
+.type-container{
+    display: flex;
+    align-items: center;
+}
+.type-container text{
+    font-size: 15px;
+}
+.type-container image{
+    width: 15px;
+    height: 15px;
+    padding: 8px;
+    border-radius: 100%;
+    margin-right: 10px;
+}
+.price-container{
+    font-size: 30px;
+}
+.date-container{
+    width: 90%;
+}
+.date-container .msg{
+    color:gray;
+    margin-right: 10px;
+}
+.item-icon-pay{
+    background-color: #8DB8FF;
+}
+.item-icon-income{
+    background-color: #FFBE00;
+}
+
+.oper-container{
+    display: flex;
+    height: 55px;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid #dedede;
+  
+}
+.oper-item{
+    display: flex;
+    align-items: center;
+}
+.oper-item image{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+.line{
+    color: #dedede;
+    background-color: #dedede;
+    width: 1px;
+    height: 20px;
+}
+.delete{
+    color: #d81e06;
+}

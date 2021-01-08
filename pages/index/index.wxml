@@ -28,7 +28,7 @@
     <view class="container" wx:else>
         <view class="main-container">
             <block wx:for="{{dataList}}" wx:key="id">
-                <m-detail data="{{item}}" bind:delete="deleteData"></m-detail>
+                <m-detail data="{{item}}" bind:delete="deleteData" bind:details="showDetail"></m-detail>
             </block>
         </view>
         <l-loading show="{{isLoading}}" color="#8DB8FF" type="change" l-container-class="{{isLoading?'loading-container':''}}"></l-loading>

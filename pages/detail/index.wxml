@@ -1,0 +1,22 @@
+<view class="container">
+    <view class="type-container">
+        <image class="{{detailData.money_type==0?'item-icon-income':'item-icon-pay'}}" src="../../images/common/tag/{{detailData.type_icon}}.png" />
+        <text>{{detailData.type_name}}</text>
+    </view>
+    <view class="price-container">{{detailData.money_num}}</view>
+    <view class="date-container">
+        <text class="msg">记录时间</text>
+        <text>{{detailData.record_date}} {{detailData.time}}</text>
+    </view>
+    <view class="oper-container">
+        <view class="oper-item" bind:tap="deleteData">
+            <image src="../../images/common/delete-icon.png" />
+            <text class="delete">删除</text>
+        </view>
+        <view class="line"></view>
+        <view class="oper-item" bind:tap="editData">
+            <image src="../../images/common/edit.png" />
+            <text>编辑</text>
+        </view>
+    </view>
+</view>

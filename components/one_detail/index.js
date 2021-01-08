@@ -26,5 +26,13 @@ Component({
         {}
       );
     },
+    detail(event) {
+      let id = event.currentTarget.dataset.id;
+      this.triggerEvent(
+        "details",
+        { id: id, },
+        {}
+      );
+    }
   }
 })

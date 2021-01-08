@@ -52,9 +52,9 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/statistical/index",
-          "pathName": "pages/statistical/index",
-          "query": "",
+          "name": "pages/detail/index",
+          "pathName": "pages/detail/index",
+          "query": "id=10",
           "scene": null
         }
       ]

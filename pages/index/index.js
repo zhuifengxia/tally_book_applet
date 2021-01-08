@@ -299,6 +299,13 @@ Page({
       this.loadData();
     }
   },
+  //查看详情
+  showDetail: function (event) {
+    let id = event.detail.id;
+    wx.navigateTo({
+      url: '/pages/detail/index?id=' + id
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
