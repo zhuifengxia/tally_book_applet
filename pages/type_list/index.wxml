@@ -10,10 +10,10 @@
         <view class="title-container">
             <view class="type-tag">
                 <view class="tag {{moneyType==1?(showtype==0?'tag-pay':''):(showtype==0?'tag-income':'')}}" bind:tap="tagChange" data-type="0">
-                    金额
+                    按金额
                 </view>
                 <view class="tag {{moneyType==1?(showtype==1?'tag-pay':''):(showtype==1?'tag-income':'')}}" bind:tap="tagChange" data-type="1">
-                    时间
+                    按时间
                 </view>
             </view>
         </view>

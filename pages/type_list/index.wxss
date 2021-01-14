@@ -58,7 +58,7 @@
 
 .title-container .type-tag{
     display: flex;
-    width: 100px;
+    width: 125px;
     justify-content: space-between;
 }
 .tag{
