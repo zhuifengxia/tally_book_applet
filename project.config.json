@@ -52,9 +52,9 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/detail/index",
-          "pathName": "pages/detail/index",
-          "query": "id=10",
+          "name": "pages/type_list/index",
+          "pathName": "pages/type_list/index",
+          "query": "typeid=19&date=2021-01&moneyType=1",
           "scene": null
         }
       ]

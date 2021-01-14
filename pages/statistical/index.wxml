@@ -28,7 +28,7 @@
         </view>
         <view class="tag-data-container">
             <block wx:for="{{show_data}}" wx:key="id">
-                <m-type-stat data="{{item}}"></m-type-stat>
+                <m-type-stat data="{{item}}" bind:tap="typeList" data-typeid="{{item.type_id}}"></m-type-stat>
             </block>
             <view class="no-data" wx:if="{{!show_data}}">暂无{{moneyType==1?"支出":"收入"}}数据</view>
         </view>

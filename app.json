@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/user/index",
     "pages/statistical/index",
-    "pages/detail/index"
+    "pages/detail/index",
+    "pages/type_list/index"
   ],
   "window": {
     "navigationBarTitleText": "小莫记账",

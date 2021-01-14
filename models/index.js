@@ -52,6 +52,7 @@ class IndexModel extends HTTP {
     });
   }
 
+  //统计页面
   getStatistic(date) {
     let user_info = this._getUserData();
     return this.request({
@@ -63,6 +64,7 @@ class IndexModel extends HTTP {
       }
     });
   }
+  //明细详情
   getDetails(id) {
     let user_info = this._getUserData();
     return this.request({
@@ -71,6 +73,22 @@ class IndexModel extends HTTP {
       data: {
         token: user_info.token,
         id: id
+      }
+    });
+  }
+
+  //统计页面根据分类查询
+  getTypeData(typeid, date, datatype, showtype = 0) {
+    let user_info = this._getUserData();
+    return this.request({
+      url: "tally/typeData",
+      method: "POST",
+      data: {
+        token: user_info.token,
+        typeid: typeid,
+        date: date,
+        datatype: datatype,
+        showtype: showtype
       }
     });
   }

@@ -1,0 +1,83 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.top-container{
+    height: 160px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+.top-container .title{
+    color: gray;
+    font-size: 15px;
+}
+.top-container .sum-data{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+}
+.top-container .price{
+    font-size: 24px;
+    font-weight: bold;
+}
+.top-container .price-unit{
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 3px;
+}
+
+.main-container{
+    width: 100%;
+    margin-top: 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.title-container{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f1f1f1;
+}
+.title-title{
+    font-size: 15px;
+}
+
+.title-container .type-tag{
+    display: flex;
+    width: 100px;
+    justify-content: space-between;
+}
+.tag{
+    border-radius: 3px;
+    padding: 5px 10px;
+    background-color: #F1F1F1;
+    color: gray;
+}
+.tag-pay{
+    color: #8DB8FF !important;
+    background-color:rgba(141, 184, 255,.3) !important;
+}
+.tag-income{
+    color:#FFBE00 !important;
+    background-color: rgba(255, 190, 0,.3) !important;
+}
+.tag-data-container{
+    width: 90%;
+}
+.tag-data-container .item-top{
+    border-bottom: 1px solid #f1f1f1;
+}

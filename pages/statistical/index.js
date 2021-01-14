@@ -103,6 +103,15 @@ Page({
       });
     }
   },
+  //统计分类跳转
+  typeList: function (event) {
+    let typeid = event.currentTarget.dataset.typeid;
+    let date = this.data.seltype.date;
+    let moneyType = this.data.moneyType;
+    wx.navigateTo({
+      url: "/pages/type_list/index?typeid=" + typeid + "&date=" + date + "&moneyType=" + moneyType,
+    });
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

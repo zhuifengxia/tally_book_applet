@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "m-top-detail": "/components/top_detail/index"
+  }
+}

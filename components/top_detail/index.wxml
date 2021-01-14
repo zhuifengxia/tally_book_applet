@@ -1,6 +1,6 @@
 <view class="container">
     <view class="type-container">
-        <image class="item-icon item-icon-pay" src="../../images/common/tag/{{data.type_icon}}.png" />
+        <image class="item-icon {{data.money_type==0?'item-icon-income':'item-icon-pay'}}" src="../../images/common/tag/{{data.type_icon}}.png" />
         <text class="type-name">{{data.type_name}}</text>
         <view class="item-remark">{{data.data_remark}}</view>
     </view>

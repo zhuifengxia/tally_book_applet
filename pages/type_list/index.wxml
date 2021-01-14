@@ -1,0 +1,28 @@
+<view class="container">
+    <view class="top-container">
+        <view class="title">{{title_data}}</view>
+        <view class="sum-data">
+            <text class="price-unit">¥</text>
+            <text class="price">{{sum_data}}</text>
+        </view>
+    </view>
+    <view class="main-container">
+        <view class="title-container">
+            <view class="type-tag">
+                <view class="tag {{moneyType==1?(showtype==0?'tag-pay':''):(showtype==0?'tag-income':'')}}" bind:tap="tagChange" data-type="0">
+                    金额
+                </view>
+                <view class="tag {{moneyType==1?(showtype==1?'tag-pay':''):(showtype==1?'tag-income':'')}}" bind:tap="tagChange" data-type="1">
+                    时间
+                </view>
+            </view>
+        </view>
+        <view class="tag-data-container">
+            <block wx:for="{{detail_data}}" wx:key="id">
+                <view class="item-top">
+                    <m-top-detail data="{{item}}"></m-top-detail>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>
