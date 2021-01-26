@@ -34,7 +34,7 @@ Page({
       editData: data
     });
     let editData = this.data.editData;
-    editData.money_num = editData.money_num.slice(0, editData.money_num.length - 3);
+    editData.money_num = editData.money_num.toNumber();
     this.setData({
       editData: editData
     });
