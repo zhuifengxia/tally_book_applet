@@ -2,18 +2,10 @@
 /* 日历主要颜色相关样式 */
 
 .default_color,
-.default_weekend-color{
-    color: #EC2825;
-    font-weight: bold;
-}
+.default_weekend-color,
+.default_handle-color,
 .default_week-color {
-    color: black;
-    font-weight: bold;
-}
-.default_handle-color{
-    color: #fff;
-    background-color: #8DB8FF;
-    font-weight: bold;
+    color: #ff629a;
 }
 
 .default_today {
@@ -23,25 +15,29 @@
 
 .default_choosed {
     color: #fff;
-    background-color: #8DB8FF;
-    font-weight: bold;
+    background-color: #ff629a;
 }
 
 .default_date-disable {
-    color: #d2d2d2;
+    color: #c7c7c7;
+}
+
+.default_choosed.default_date-disable {
+    color: #e2e2e2;
+    background-color: #c2afb6;
 }
 
 .default_prev-month-date,
 .default_next-month-date {
-    color: #dedede;
+    color: #e2e2e2;
 }
 
 .default_normal-date {
-    color: #8DB8FF;
+    color: #88d2ac;
 }
 
 .default_todo-circle {
-    border-color: #8DB8FF;
+    border-color: #88d2ac;
 }
 
 .default_todo-dot {
@@ -58,4 +54,8 @@
 
 .default_date-desc-disable {
     color: #e2e2e2;
+}
+
+.default_festival {
+    color: #c2c2c2;
 }
