@@ -52,8 +52,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/clock_in/index",
-          "pathName": "pages/clock_in/index",
+          "name": "pages/statistical/index",
+          "pathName": "pages/statistical/index",
           "query": "",
           "scene": null
         }

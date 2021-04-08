@@ -23,7 +23,8 @@ Page({
       showMonth: ""
     },
     indexDate: null,
-    showDate: false
+    showDate: false,
+    is_show_yearbill: 0
   },
 
   /**
@@ -92,7 +93,8 @@ Page({
         income_data: data.income_data,
         top_data: data.top_pay,
         indexDate: data.date_scope,
-        show_data: data.pay_data
+        show_data: data.pay_data,
+        is_show_yearbill: data.is_show_yearbill
       })
       wx.hideLoading();
     } else {
@@ -112,7 +114,12 @@ Page({
       url: "/pages/type_list/index?typeid=" + typeid + "&date=" + date + "&moneyType=" + moneyType,
     });
   },
-
+  //跳转到年度账单
+  showYearbill: function (event) {
+    wx.navigateTo({
+      url: "/pages/year_bill/index",
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

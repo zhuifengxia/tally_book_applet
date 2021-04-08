@@ -1,5 +1,0 @@
-<view class="container">
-    <view style="margin-top:10px;width:95%">
-        <calendar id="calendar" config="{{calendarConfig}}" bind:takeoverTap="takeoverTap" bind:whenChangeMonth="whenChangeMonth" />
-    </view>
-</view>

@@ -1,9 +1,16 @@
 <view class="container">
     <view class="top-container">
-        <view class="date-container" bind:tap="showDate" data-type="0">
-            <text>{{seltype.showDate}}</text>
-            <text class="line">|</text>
-            <image src="../../images/common/date-icon.png" />
+        <view style="width:95%;display:flex;justify-content: center;padding:0 10px;align-items: center;">
+            <view style="width:85%;display:flex;justify-content: center;">
+                <view class="date-container" bind:tap="showDate" data-type="0">
+                    <text>{{seltype.showDate}}</text>
+                    <text class="line">|</text>
+                    <image src="../../images/common/date-icon.png" />
+                </view>
+            </view>
+            <view wx:if="{{is_show_yearbill}}" class="yearbill-btn" bind:tap="showYearbill">
+                年度账单
+            </view>
         </view>
         <view class="money-container">
             <text class="pay-msg">共支出</text>

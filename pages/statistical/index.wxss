@@ -208,3 +208,11 @@
     color:gray;
     font-size: 15px;
 }
+
+.yearbill-btn{
+    width:15%;
+    border-radius: 3px;
+    padding: 5px 10px;
+    background-color:rgba(141, 184, 255,.3) ;
+    color: #8DB8FF;
+}

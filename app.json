@@ -5,7 +5,7 @@
     "pages/statistical/index",
     "pages/detail/index",
     "pages/type_list/index",
-    "pages/clock_in/index"
+    "pages/year_bill/index"
   ],
   "window": {
     "navigationBarTitleText": "小莫记账",
@@ -28,12 +28,6 @@
       {
         "pagePath": "pages/statistical/index",
         "text": "统计",
-        "iconPath": "images/tab/statistics.png",
-        "selectedIconPath": "images/tab/statistics@highlight.png"
-      },
-      {
-        "pagePath": "pages/clock_in/index",
-        "text": "打卡",
         "iconPath": "images/tab/statistics.png",
         "selectedIconPath": "images/tab/statistics@highlight.png"
       },
