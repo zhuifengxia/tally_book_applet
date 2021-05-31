@@ -52,8 +52,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/statistical/index",
-          "pathName": "pages/statistical/index",
+          "name": "pages/year_bill/index",
+          "pathName": "pages/year_bill/index",
           "query": "",
           "scene": null
         }

@@ -93,6 +93,18 @@ class IndexModel extends HTTP {
     });
   }
 
+  //年度统计页面
+  getYearBill(date) {
+    let user_info = this._getUserData();
+    return this.request({
+      url: "tally/yearBill",
+      method: "POST",
+      data: {
+        token: user_info.token,
+        year: date
+      }
+    });
+  }
   //获取用户信息
   _getUserData() {
     let user_info = wx.getStorageSync('web_user_info');

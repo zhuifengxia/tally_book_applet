@@ -1,2 +1,32 @@
-<!--pages/year_bill/index.wxml-->
-<text>pages/year_bill/index.wxml</text>
+<view class="container">
+    <view class="title">2021全年</view>
+    <view class="pay-container">
+        <view class="pay-title">
+            <view class="pay-me">我支出的</view>
+            <view class="pay-num">共计{{pay_num}}笔</view>
+            <view class="pay-sum-msg">合计</view>
+        </view>
+        <view class="pay-money">¥ {{pay_count}}</view>
+        <view class="line-container"></view>
+        <view class="pay-item-container">
+            <view>支出分类</view>
+            <view class="pay-item">
+                <block wx:for="{{pay_data}}" wx:key="id">
+                    <m-type-stat data="{{item}}"></m-type-stat>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view class="pay-container" style="margin-top:4px">
+        <view class="pay-title">
+            <view class="pay-me" style="color:#FFBE00">我收到的</view>
+            <view class="pay-num">共计{{income_num}}笔</view>
+            <view class="pay-sum-msg">合计</view>
+        </view>
+        <view class="pay-money" style="color:#FFBE00">¥ {{income_count}}</view>
+        <view class="line-container"></view>
+        <view class="echart_panel">
+            <ec-canvas id="mychart" canvas-id="mychart-bar" ec="{{ ecLine }}"></ec-canvas>
+        </view>
+    </view>
+</view>
