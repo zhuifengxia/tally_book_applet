@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    date: "2021",
+    date: "",
     pay_num: 0, //支出笔数
     pay_count: 0, //总支出金额
     pay_data: [], //每个类型支出明细
