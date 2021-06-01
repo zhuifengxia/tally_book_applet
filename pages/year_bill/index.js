@@ -69,6 +69,9 @@ Page({
     var that = this
     // 前台配置折线线条表示属性
     var option = {
+      lineStyle: { color: "#FFBE00" },
+      areaStyle: { color: "#FFBE00" },
+      color: "#FFBE00",
       xAxis: {
         type: 'category',
         boundaryGap: false,
@@ -79,7 +82,11 @@ Page({
       },
       tooltip: {
         trigger: "item",
-        formatter: "{b} : ¥{c}元"
+        formatter: "{b} : ¥{c}元",
+        backgroundColor: "#FFBE00",
+        textStyle: {
+          color: "white"
+        },
       },
       series: [{
         data: that.data.income_data,

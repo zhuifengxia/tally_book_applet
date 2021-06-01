@@ -60,24 +60,13 @@
 
 ec-canvas {
     width: 100%;
-    height: 300px;
+    height: 100%;
     background-color: white;
   }
   .echart_panel {
     position: absolute;
-    top: 1050px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
+    top: 1085px;
     background-color: white;
+    width: 100%;
+    height: 300px;
   } 
-  .picker-pos{
-    margin-top: -130rpx;
-    margin-left: 150rpx;
-    color: blueviolet
-  }
