@@ -31,7 +31,8 @@ Page({
         pay_count: data.pay_count,
         income_num: data.income_num,
         income_count: data.income_count,
-        income_data: data.income_data
+        income_data: data.income_data,
+        date: data.year
       })
       this.echartsComponnet = this.selectComponent('#mychart');
       this.init_echarts()

@@ -1,5 +1,5 @@
 <view class="container">
-    <view class="title">2021全年</view>
+    <view class="title">{{date}}全年</view>
     <view class="pay-container">
         <view class="pay-title">
             <view class="pay-me">我支出的</view>
