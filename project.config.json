@@ -52,8 +52,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/year_bill/index",
-          "pathName": "pages/year_bill/index",
+          "name": "pages/clock_in/index",
+          "pathName": "pages/clock_in/index",
           "query": "",
           "scene": null
         }

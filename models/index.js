@@ -105,6 +105,20 @@ class IndexModel extends HTTP {
       }
     });
   }
+  //获取打卡数据信息
+  getCheckList(date, monthtype, typeid) {
+    let user_info = this._getUserData();
+    return this.request({
+      url: "tally/checkList",
+      method: "POST",
+      data: {
+        token: user_info.token,
+        date: date,
+        monthtype: monthtype,
+        typeid: typeid
+      }
+    });
+  }
   //获取用户信息
   _getUserData() {
     let user_info = wx.getStorageSync('web_user_info');

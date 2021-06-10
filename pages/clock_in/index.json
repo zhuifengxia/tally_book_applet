@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "m-calendar": "/components/clock_calendar/index"
+  }
+}

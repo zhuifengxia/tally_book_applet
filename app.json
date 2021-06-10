@@ -5,7 +5,8 @@
     "pages/statistical/index",
     "pages/detail/index",
     "pages/type_list/index",
-    "pages/year_bill/index"
+    "pages/year_bill/index",
+    "pages/clock_in/index"
   ],
   "window": {
     "navigationBarTitleText": "小莫记账",

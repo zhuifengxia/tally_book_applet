@@ -1,0 +1,71 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: white;
+    margin-bottom: 5px;
+    align-items: center;
+}
+
+.date-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.date-data{
+    display: flex;
+}
+
+.week-container{
+    margin-top: 10px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #8DB8FF;
+    padding: 10px 17px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+.days-container{
+    display: flex;
+    justify-content: center;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color:rgba(235, 235, 235, .5)
+}
+.day-container{
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.day-item{
+    width: 14%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+.day-item-empty{
+    width: 14%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+.day-item text{
+    background-color: white;
+    color: #8DB8FF;
+    border: 1px solid #8DB8FF;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.check-text{
+    background-color: #8DB8FF !important;
+    color: white !important;
+}

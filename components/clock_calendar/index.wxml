@@ -1,0 +1,33 @@
+<view class="container">
+    <view class="date-container">
+        <l-icon name="left" size="30" bind:tap="changeMonth" data-type="1" />
+        <view class="date-data">
+            <view>{{date.year}}年</view>
+            <view>{{date.month}}月</view>
+        </view>
+        <l-icon name="right" size="30" bind:tap="changeMonth" data-type="2" />
+    </view>
+    <view class="week-container">
+        <text>日</text>
+        <text>一</text>
+        <text>二</text>
+        <text>三</text>
+        <text>四</text>
+        <text>五</text>
+        <text>六</text>
+    </view>
+    <view class="days-container">
+        <view class="day-container">
+            <block wx:for="{{firstWeek}}">
+                <view class="day-item-empty">
+                    <text></text>
+                </view>
+            </block>
+            <block wx:for="{{days}}">
+                <view class="day-item">
+                    <text class="{{item.ischeck==1?'check-text':''}}">{{item.day}}</text>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>

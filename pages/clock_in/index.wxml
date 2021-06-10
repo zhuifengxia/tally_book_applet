@@ -1,0 +1,3 @@
+<view class="container">
+    <m-calendar date="{{date}}" days="{{days}}" firstWeek="{{first_week}}" bind:changeMonth="changeMonth"></m-calendar>
+</view>
