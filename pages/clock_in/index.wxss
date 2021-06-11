@@ -10,3 +10,27 @@ m-calendar{
     width: 90%;
     margin-top: 20px;
 }
+
+.data-container{
+    width: 50%;
+    margin:20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border:2px solid #8DB8FF;
+    border-radius: 15px;
+}
+.count-container{
+    width: 55%;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color:#888;
+}
+.data-count{
+    font-size: 20px;
+    color: #8DB8FF;
+    font-weight: bold;
+}

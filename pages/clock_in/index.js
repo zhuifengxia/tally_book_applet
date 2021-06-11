@@ -10,7 +10,9 @@ Page({
     days: [],
     first_week: 0,
     date: {},
-    check_type: []
+    check_type: [],
+    check_count: 0,
+    continuous_count: 0
   },
 
   /**
@@ -21,7 +23,9 @@ Page({
     this.setData({
       days: data.days,
       first_week: data.first_week,
-      date: data.date
+      date: data.date,
+      check_count: data.check_count,
+      continuous_count: data.continuous_count
     });
   },
 
@@ -31,7 +35,9 @@ Page({
       days: data.days,
       first_week: data.first_week,
       date: data.date,
-      check_type: data.type_data
+      check_type: data.type_data,
+      check_count: data.check_count,
+      continuous_count: data.continuous_count
     });
   },
 

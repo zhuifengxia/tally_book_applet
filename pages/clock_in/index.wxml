@@ -1,3 +1,15 @@
 <view class="container">
     <m-calendar date="{{date}}" days="{{days}}" firstWeek="{{first_week}}" bind:changeMonth="changeMonth"></m-calendar>
+    <view class="data-container">
+        <view class="count-container">
+            <text>已累计打卡</text>
+            <text class="data-count">{{check_count}}</text>
+            <text>天</text>
+        </view>
+        <view class="count-container">
+            <text>已连续打卡</text>
+            <text class="data-count">{{continuous_count}}</text>
+            <text>天</text>
+        </view>
+    </view>
 </view>
