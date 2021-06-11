@@ -29,5 +29,15 @@ Component({
         {}
       );
     },
+    checkIn(event) {
+      let date = this.data.date.date;
+      let day = event.currentTarget.dataset.day;
+      let ischeck = event.currentTarget.dataset.ischeck;
+      this.triggerEvent(
+        "checkIn",
+        { date: date, day: day, ischeck: ischeck },
+        {}
+      );
+    }
   }
 })

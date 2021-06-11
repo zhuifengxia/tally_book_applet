@@ -1,5 +1,26 @@
 <view class="container">
-    <m-calendar date="{{date}}" days="{{days}}" firstWeek="{{first_week}}" bind:changeMonth="changeMonth"></m-calendar>
+    <view class="type-container">
+        <view class="type-view" bind:tap="showType" data-type="1">
+            <text>{{sel_type.type_name}}</text>
+            <image src="../../images/common/down-icon.png" />
+        </view>
+    </view>
+    <l-popup show="{{is_check_type}}" content-align="bottom">
+        <scroll-view class="type-show-container" scroll-y="{{true}}">
+            <view class="type-show-header">
+                <text>请选择分类</text>
+                <l-icon name="close" size="30" color="gray" bind:tap="showType" data-type="0" />
+            </view>
+            <view class="type-list">
+                <block wx:for="{{check_type}}" wx:key="id">
+                    <view class="type-item" data-id="{{item.id}}" bind:tap="changeType">
+                        {{item.type_name}}
+                    </view>
+                </block>
+            </view>
+        </scroll-view>
+    </l-popup>
+    <m-calendar date="{{date}}" days="{{days}}" firstWeek="{{first_week}}" bind:changeMonth="changeMonth" bind:checkIn="checkIn"></m-calendar>
     <view class="data-container">
         <view class="count-container">
             <text>已累计打卡</text>

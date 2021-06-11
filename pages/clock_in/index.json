@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "m-calendar": "/components/clock_calendar/index"
+    "m-calendar": "/components/clock_calendar/index",
+    "l-icon": "/miniprogram_npm/lin-ui/icon/index",
+    "l-popup": "/miniprogram_npm/lin-ui/popup/index"
   }
 }

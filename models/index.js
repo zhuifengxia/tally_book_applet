@@ -119,6 +119,19 @@ class IndexModel extends HTTP {
       }
     });
   }
+  //打卡操作
+  getCheckIn(date, typeid) {
+    let user_info = this._getUserData();
+    return this.request({
+      url: "tally/checkIn",
+      method: "POST",
+      data: {
+        token: user_info.token,
+        date: date,
+        typeid: typeid
+      }
+    });
+  }
   //获取用户信息
   _getUserData() {
     let user_info = wx.getStorageSync('web_user_info');

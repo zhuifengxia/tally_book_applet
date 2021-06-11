@@ -6,6 +6,74 @@
     background-color: white;
 }
 
+.type-container{
+    width: 90%;
+    margin-top: 20px;
+    border-bottom: 1px solid #dedede;
+    padding-bottom: 5px;
+}
+.type-view{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75px;
+    border: 1px solid #8DB8FF;
+    padding: 5px 2px;
+    border-radius: 10px;
+    background-color: #8DB8FF;
+    color: white;
+}
+.type-view image{
+    margin-left: 2px;
+    width: 15px;
+    height: 15px;
+}
+
+
+.type-show-container{
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    background-color: #FAFAFA;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.type-show-header{
+    display: flex;
+    width: 95%;
+    padding:10px;
+    justify-content: center;
+    line-height: 30px;
+    height: 30px;
+    border-bottom: 1px solid #dedede;
+    margin:0 auto;
+    position: fixed;
+    background-color: #FAFAFA;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.type-show-header text{
+    width: 90%;
+    text-align: center;
+}
+.type-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding-top: 50px;
+}
+.type-item{
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #dedede;
+}
+
 m-calendar{
     width: 90%;
     margin-top: 20px;
