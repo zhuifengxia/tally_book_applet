@@ -33,6 +33,12 @@
         "selectedIconPath": "images/tab/statistics@highlight.png"
       },
       {
+        "pagePath": "pages/clock_in/index",
+        "text": "打卡",
+        "iconPath": "images/tab/clock_in.png",
+        "selectedIconPath": "images/tab/clock_in@highlight.png"
+      },
+      {
         "pagePath": "pages/user/index",
         "text": "我",
         "iconPath": "images/tab/user.png",
