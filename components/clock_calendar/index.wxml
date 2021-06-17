@@ -25,7 +25,7 @@
             </block>
             <block wx:for="{{days}}">
                 <view class="day-item" bind:tap="checkIn" data-day="{{item.day}}" data-ischeck="{{item.ischeck}}">
-                    <text class="{{item.ischeck==1?'check-text':''}}">{{item.day}}</text>
+                    <text class="{{item.ischeck==1?'check-text':''}} {{item.isnow==1?'now-text':''}}">{{item.day}}</text>
                 </view>
             </block>
         </view>
