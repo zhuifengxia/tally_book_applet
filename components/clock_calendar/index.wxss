@@ -72,6 +72,5 @@
 
 .now-text{
     border:1px solid red !important;
-    background-color: red !important;
-    color: white !important;
+    color: red !important;
 }
