@@ -1,0 +1,8 @@
+<view class="container">
+    <view class="art-container">
+        <block wx:for="{{articles}}" wx:key="">
+            <m-article bind:artDetail="artDetail" data="{{item}}"></m-article>
+        </block>
+    </view>
+    <l-loading show="{{loading}}" l-class="loading" type="change"></l-loading>
+</view>

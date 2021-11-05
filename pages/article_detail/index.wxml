@@ -1,0 +1,25 @@
+<view class="container">
+    <view class="header">
+        <view class="title">
+            <text>{{artDetail.article_title}}</text>
+        </view>
+        <view class="articlemsg">
+            <view class="art-tag">
+                <view class="user">
+                    <l-icon name="user" color="#d2d2d2" size="30" />
+                    <text class="author">刘小莫</text>
+                </view>
+                <view class="read-calss">
+                    <text class="readnum">阅读 {{artDetail.read_num}}</text>
+                </view>
+            </view>
+            <view class="time-div">
+                <l-icon name="time" color="#d2d2d2" size="30" />
+                <text class="time">{{artDetail.create_time}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="artmsg">
+        <rich-text nodes="{{artDetail.article_msg}}"></rich-text>
+    </view>
+</view>

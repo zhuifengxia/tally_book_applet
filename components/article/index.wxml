@@ -1,0 +1,4 @@
+<view class="container" bind:tap="onArticle">
+    <image class="art-img" src="https://liuxiaomo.cn{{data.article_img}}"></image>
+    <view class="art-title">{{data.article_title}}</view>
+</view>
