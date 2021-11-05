@@ -6,6 +6,7 @@ Page({
    */
   data: {
     artDetail: null,
+    previewImage:[]
   },
 
   /**
@@ -16,13 +17,45 @@ Page({
     const article = await foodModel.getDetails(artid);
     article.article_msg = article.article_msg.replace(
       /<img/gi,
-      '<img style="max-width:100%;height:auto;float:left;display:block" '
+      '<img style="max-width:100%;height:150px;display:block" '
     );
+    var that=this;
+    // 将富文本赋值线imageNode。       
+    var imageNode = article.article_msg;
+      // 是否存在图片文件资源判断。      
+    if (imageNode.indexOf("src") >= 0) {  
+        // 定义一个空数组。         
+        var previewImage = [];        
+          // 将imageNode进t地替换，并使用push()添加一个或多个元素，并返回新的长度。    
+        imageNode = imageNode.replace(/]*src=['"]([^'"]+)[^>]*>/gi, function (match, capture) { 
+            previewImage.push(capture);            
+            that.setData({ 
+              previewImage: previewImage            
+            });
+        });        
+    }
+
     
     this.setData({
       artDetail: article
     });
   },
+    //预览图片，放大预览  
+  previewImage(e) {
+      // 定义src为一个空数组
+      var src = []; 
+      // 将previewImage中的图片资源数据进行遍历。 
+      for (var i = 0; i < this.data.previewImage.length; i++) {
+        src[i] = this.data.previewImage[i];    
+      }  
+      // 直接调e和用wx.previewImage    
+      wx.previewImage({
+          current: src[0],
+          // 第一张图片。     
+          urls: src    
+      })  
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

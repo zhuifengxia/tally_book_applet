@@ -20,6 +20,6 @@
         </view>
     </view>
     <view class="artmsg">
-        <rich-text nodes="{{artDetail.article_msg}}"></rich-text>
+        <rich-text nodes="{{artDetail.article_msg}}" bindtap="previewImage"></rich-text>
     </view>
 </view>
