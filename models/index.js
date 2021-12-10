@@ -2,7 +2,7 @@ import { HTTP } from "../util/http-p.js";
 
 class IndexModel extends HTTP {
   //小程序首页数据
-  getIndex(typeid, date) {
+  getIndex(typeid, date,onlydata=0) {
     let user_info = this._getUserData();
     return this.request({
       url: "tally/index",
@@ -10,7 +10,8 @@ class IndexModel extends HTTP {
       data: {
         token: user_info.token,
         typeid: typeid,
-        date: date
+        date: date,
+        onlydata:onlydata
       }
     });
   }

@@ -22,6 +22,8 @@ Page({
       typename: "全部类型",
       datatype: 0,
       date: "",
+      onlydata:0,
+      onlydataname:"全部账单",
       showDate: ""
     },
     createType: {
@@ -67,7 +69,7 @@ Page({
   },
   //加载数据明细
   async loadData() {
-    const data = await indexModel.getIndex(this.data.seltype.typeid, this.data.seltype.date);
+    const data = await indexModel.getIndex(this.data.seltype.typeid, this.data.seltype.date,this.data.seltype.onlydata);
     this.setData({
       dataList: data.details,
       allMoney: { pay: data.pay_count, income: data.income_count }
@@ -130,7 +132,7 @@ Page({
           seltype: seltype
         });
         //请求数据
-        const data = await indexModel.getIndex(seltype.typeid, seltype.date);
+        const data = await indexModel.getIndex(seltype.typeid, seltype.date,seltype.onlydata);
         this.setData({
           dataList: data.details,
           allMoney: { pay: data.pay_count, income: data.income_count }
@@ -305,6 +307,27 @@ Page({
     wx.navigateTo({
       url: '/pages/detail/index?id=' + id
     })
+  },
+  showActionSheet(){
+    wx.lin.showActionSheet({
+      itemList:[{
+        name: '全部账单'
+      },
+      {
+        name: '我的账单'
+      }]
+    })
+  },
+  lintapItem(e){
+    let onlydata=e.detail.index;
+    let onlytype=e.detail.item.name;
+    let seltype = this.data.seltype;
+    seltype.onlydata = onlydata;
+    seltype.onlydataname = onlytype;
+    this.setData({
+      seltype: seltype
+    });
+    this.loadData();
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

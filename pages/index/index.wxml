@@ -1,10 +1,16 @@
 <view class="container">
     <view class="header-container">
-        <view class="type-container" bind:tap="showType" data-type="-1">
-            <text>{{seltype.typename}}</text>
-            <view class="line"></view>
-            <image src="../../images/common/type-icon.png" />
+        <view style="display:flex">
+            <view class="type-container" bind:tap="showType" data-type="-1">
+                <text>{{seltype.typename}}</text>
+                <view class="line"></view>
+                <image src="../../images/common/type-icon.png" />
+            </view>
+            <l-button l-class="button" bind:lintap="showActionSheet">{{seltype.onlydataname}}</l-button>
+            <l-action-sheet item-list="{{itemList}}" show="{{false}}"   
+  bind:linitemtap="lintapItem"/>
         </view>
+
         <view class="header-main-container">
             <view class="date-container" bind:tap="showDate" data-type="0">
                 <text>{{seltype.showDate}}</text>
