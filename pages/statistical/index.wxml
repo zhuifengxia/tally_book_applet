@@ -22,7 +22,14 @@
         </view>
     </view>
     <view class="bottom-container" wx:if="{{show_data||top_data}}">
-        <view class="title-container">
+        <view class="user-count-container">
+            <text class="title-title">我的收支</text>
+            <view class="user-item-data">
+            <view style="background-color:#8DB8FF">总支出：{{user_pay_count}}</view>
+            <view style="background-color:#FFBE00">总收入：{{user_incom_count}}</view>
+            </view>
+        </view>
+        <view class="title-container" style="margin-top:10px">
             <text class="title-title">收支构成</text>
             <view class="type-tag">
                 <view class="tag {{moneyType==1?'tag-pay':''}}" bind:tap="tagChange" data-type="1">
