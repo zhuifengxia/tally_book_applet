@@ -64,8 +64,8 @@ ec-canvas {
     background-color: white;
   }
   .echart_panel {
-    position: absolute;
-    top: 1085px;
+    /*position: absolute;
+    top: 188%;*/
     background-color: white;
     width: 100%;
     height: 300px;
