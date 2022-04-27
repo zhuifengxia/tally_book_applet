@@ -73,10 +73,18 @@ Page({
   //数据操作
   operType: function (options) {
     let type = options.currentTarget.dataset.type;
-    //关于我们
-    wx.navigateTo({
-      url: "/pages/about_us/index",
-    });
+    if(type==6){
+      //关于我们
+      wx.navigateTo({
+        url: "/pages/about_us/index",
+      });
+    }else if(type==5){
+      //菜谱
+      wx.navigateTo({
+        url: "/pages/recipe/index",
+      });
+    }
+    
   },
 
 

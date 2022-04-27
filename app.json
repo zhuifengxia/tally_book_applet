@@ -8,6 +8,7 @@
         "pages/year_bill/index",
         "pages/clock_in/index",
         "pages/recipe/index",
+        "pages/son_record/index",
         "pages/article_detail/index"
     ],
     "window": {
@@ -41,10 +42,10 @@
                 "selectedIconPath": "images/tab/clock_in@highlight.png"
             },
             {
-                "pagePath": "pages/recipe/index",
-                "text": "食谱",
-                "iconPath": "images/tab/food.png",
-                "selectedIconPath": "images/tab/food@highlight.png"
+                "pagePath": "pages/son_record/index",
+                "text": "身高",
+                "iconPath": "images/tab/details.png",
+                "selectedIconPath": "images/tab/details@highlight.png"
             },
             {
                 "pagePath": "pages/user/index",

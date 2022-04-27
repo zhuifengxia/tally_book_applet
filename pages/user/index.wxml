@@ -38,6 +38,7 @@
         <button class="btn-customer" open-type="contact">
             <l-list title="客服服务" l-icon-class="icon-color" icon="customer-service" />
         </button>
-        <l-list title="关于我们" l-icon-class="icon-color" icon="warning" bind:lintap="operType" data-type="6" />
+        <l-list title="菜谱收藏" l-icon-class="icon-color" icon="order" bind:lintap="operType" data-type="5" />
+         <l-list title="关于我们" l-icon-class="icon-color" icon="warning" bind:lintap="operType" data-type="6" />
     </view>
 </view>
