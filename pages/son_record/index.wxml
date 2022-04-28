@@ -1,2 +1,6 @@
-<!--pages/son_record/index.wxml-->
-<text>pages/son_record/index.wxml</text>
+<view class="container">
+     <view class="echart_panel">
+            <canvas canvas-id="heightCanvas" disable-scroll="true" class="canvas"></canvas>
+            <canvas canvas-id="weightCanvas" disable-scroll="true" class="canvas"></canvas>
+    </view>
+</view>

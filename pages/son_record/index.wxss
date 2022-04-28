@@ -1,1 +1,12 @@
-/* pages/son_record/index.wxss */
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.canvas {
+    width: 750rpx;
+    height: 500rpx;
+    background-color: white;
+    margin-bottom: 20px;
+}
