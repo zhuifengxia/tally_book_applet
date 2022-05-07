@@ -3,10 +3,24 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    background-color: white;
 }
 .canvas {
     width: 750rpx;
     height: 500rpx;
     background-color: white;
     margin-bottom: 20px;
+}
+.btn-container{
+    margin:20px 0;
+    width: 100%;
+}
+.btn-container view{
+    background-color: #8DB8FF;
+    color:white;
+    padding:5px;
+    margin-left:20px;
+    width: 40px;
+    text-align: center;
+    border-radius: 5px;
 }

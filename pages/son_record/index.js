@@ -3,6 +3,8 @@ import { RecordModel } from "../../models/sonRecord.js";
 
 var wxCharts = require("../../util/wxcharts-min.js");
 const recordModel = new RecordModel();
+var heightChart=null;
+var weightChart=null;
 Page({
 
     /**
@@ -45,7 +47,7 @@ Page({
         } catch (e) {
             console.error('getSystemInfoSync failed!');
         }
-         var heightChart = new wxCharts({
+         heightChart = new wxCharts({
             canvasId: 'heightCanvas',
             type: 'line',
             categories: this.data.xdata,
@@ -53,9 +55,8 @@ Page({
             series: [{
                 name: '身高',
                 data: this.data.heightData,
-                smooth: true,
                 format: function (val, name) {
-                    return val + '';
+                    return val + 'cm';
                 }
             }
             ],
@@ -73,11 +74,11 @@ Page({
             dataLabel: false,
             dataPointShape: true,
             extra: {
-                lineStyle: 'curve'
+                lineStyle: 'Broken'
             }
         });
 
-        let weightChart = new wxCharts({
+        weightChart = new wxCharts({
           canvasId: 'weightCanvas',
           type: 'line',
           categories: this.data.xdata,
@@ -85,9 +86,8 @@ Page({
           series: [{
               name: '体重',
               data: this.data.weightData,
-              smooth: true,
               format: function (val, name) {
-                  return val + '';
+                  return val + 'kg';
               }
           }
           ],
@@ -105,11 +105,30 @@ Page({
           dataLabel: false,
           dataPointShape: true,
           extra: {
-              lineStyle: 'curve'
+              lineStyle: 'Broken'
           }
       });
       },
+  //身高点击事件
+  touchHeightCanvas:function(e){
+    heightChart.showToolTip(e, {
+      format: function (item, category) {
+        return category + ' ' + item.name + ':' + item.data
+      }
+    });
+  },
+//体重点击事件
+touchWeightCanvas:function(e){
+    heightChart.showToolTip(e, {
+      format: function (item, category) {
+        return category + ' ' + item.name + ':' + item.data
+      }
+    });
+  },
+  //创建记录
+  createRecord:function(){
 
+  },
     /**
      * 生命周期函数--监听页面隐藏
      */

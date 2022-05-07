@@ -1,6 +1,34 @@
 <view class="container">
-     <view class="echart_panel">
-            <canvas canvas-id="heightCanvas" disable-scroll="true" class="canvas"></canvas>
-            <canvas canvas-id="weightCanvas" disable-scroll="true" class="canvas"></canvas>
+    <view class="btn-container">
+        <view bind:tap="createRecord">记录</view>
     </view>
+     <view class="echart_panel">
+            <canvas canvas-id="heightCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHeightCanvas"></canvas>
+            <canvas canvas-id="weightCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchWeightCanvas"></canvas>
+    </view>
+    <l-popup show="{{createDivShow}}" content-align="bottom" locked="{{true}}">
+        <view class="create-show-content">
+            <view class="create-show-header">
+                <l-icon name="close" size="30" color="gray" bind:tap="showCreate" />
+                <text></text>
+            </view>
+            <view class="create-tag">
+                <view class="create-date" bind:tap="showDate" data-type="1">
+                    <text>{{createData.showDate}}</text>
+                    <image src="../../images/common/down-icon-1.png" />
+                </view>
+            </view>
+            
+            <view class="create-remark">
+                <image src="../../images/common/remark-icon.png" />
+                <input placeholder="身高" bindinput="heightData" />
+            </view>
+            <view class="create-remark">
+                <image src="../../images/common/remark-icon.png" />
+                <input placeholder="体重" bindinput="weightData" />
+            </view>
+            <view bind:tap="submitData" class="sure-item">确定</view>
+            <l-calendar show="{{ showCalendar }}" show-confirm="{{false}}" color="#8DB8FF" bind:linconfirm="selDate" />
+        </view>
+    </l-popup>
 </view>

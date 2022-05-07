@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "ec-canvas": "/ec-canvas/ec-canvas"
+    "l-popup": "/miniprogram_npm/lin-ui/popup/index"
   }
 }
