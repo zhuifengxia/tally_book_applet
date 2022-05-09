@@ -15,7 +15,7 @@ class RecordModel extends HTTP {
   recordSave(height, weight, date) {
     let user_info = this._getUserData();
     return this.request({
-      url: "tally/create",
+      url: "tally/recordSave",
       method: "POST",
       data: {
         token: user_info.token,

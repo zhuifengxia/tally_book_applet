@@ -13,7 +13,13 @@ Page({
     data: {
         xdata:[],
         heightData:[],
-        weightData:[]
+        weightData:[],
+        createDivShow: false,
+        createData: {
+            height: "",
+            weight: "",
+            date: "",
+          },
     },
 
     /**
@@ -29,85 +35,118 @@ Page({
     onReady: function () {
 
     },
+    //创建隐藏
+    hideCreate: function (e) {
+    this.setData({
+        createDivShow: false
+    });
+  },
+   //保存提交
+   async submitData(e) {
+    let createData = this.data.createData;
+    let height = createData.height;
+    let weight = createData.weight;
+    if (height == ""||weight=="") {
+      wx.showToast({
+        title: "请输入身高和体重",
+        icon: "none",
+        duration: 2000
+      });
+    } else {
+      await recordModel.recordSave(height, weight,createData.date);
+      wx.showToast({
+        title: "记录成功",
+        icon: "none",
+        duration: 2000
+      });
+      this.setData({
+        createDivShow: false
+      });
+      this.loadData();
+    }
+  },
 
+  async loadData (e){
+    const record = await recordModel.getList();
+    this.setData({
+        xdata: record.xdata,
+        heightData:record.height_data,
+        weightData:record.weight_data,
+    });
+    var windowWidth = 320;
+    try {
+        var res = wx.getSystemInfoSync();
+        windowWidth = res.windowWidth;
+    } catch (e) {
+        console.error('getSystemInfoSync failed!');
+    }
+     heightChart = new wxCharts({
+        canvasId: 'heightCanvas',
+        type: 'line',
+        categories: this.data.xdata,
+        animation: true,
+        series: [{
+            name: '身高',
+            data: this.data.heightData,
+            format: function (val, name) {
+                return val + 'cm';
+            }
+        }
+        ],
+        xAxis: {
+            disableGrid: true
+        },
+        yAxis: {
+            title: '身高',
+            format: function (val) {
+                return val;
+            },
+        },
+        width: windowWidth,
+        height: 200,
+        dataLabel: false,
+        dataPointShape: true,
+        extra: {
+            lineStyle: 'Broken'
+        }
+    });
+
+    weightChart = new wxCharts({
+      canvasId: 'weightCanvas',
+      type: 'line',
+      categories: this.data.xdata,
+      animation: true,
+      series: [{
+          name: '体重',
+          data: this.data.weightData,
+          format: function (val, name) {
+              return val + 'kg';
+          }
+      }
+      ],
+      xAxis: {
+          disableGrid: true
+      },
+      yAxis: {
+          title: '体重',
+          format: function (val) {
+              return val;
+          },
+      },
+      width: windowWidth,
+      height: 200,
+      dataLabel: false,
+      dataPointShape: true,
+      extra: {
+          lineStyle: 'Broken'
+      }
+  });
+  },
     /**
      * 生命周期函数--监听页面显示
      */
      async onShow() {
-        const record = await recordModel.getList();
-        this.setData({
-            xdata: record.xdata,
-            heightData:record.height_data,
-            weightData:record.weight_data,
-        });
-        var windowWidth = 320;
-        try {
-            var res = wx.getSystemInfoSync();
-            windowWidth = res.windowWidth;
-        } catch (e) {
-            console.error('getSystemInfoSync failed!');
-        }
-         heightChart = new wxCharts({
-            canvasId: 'heightCanvas',
-            type: 'line',
-            categories: this.data.xdata,
-            animation: true,
-            series: [{
-                name: '身高',
-                data: this.data.heightData,
-                format: function (val, name) {
-                    return val + 'cm';
-                }
-            }
-            ],
-            xAxis: {
-                disableGrid: true
-            },
-            yAxis: {
-                title: '身高',
-                format: function (val) {
-                    return val;
-                },
-            },
-            width: windowWidth,
-            height: 200,
-            dataLabel: false,
-            dataPointShape: true,
-            extra: {
-                lineStyle: 'Broken'
-            }
-        });
-
-        weightChart = new wxCharts({
-          canvasId: 'weightCanvas',
-          type: 'line',
-          categories: this.data.xdata,
-          animation: true,
-          series: [{
-              name: '体重',
-              data: this.data.weightData,
-              format: function (val, name) {
-                  return val + 'kg';
-              }
-          }
-          ],
-          xAxis: {
-              disableGrid: true
-          },
-          yAxis: {
-              title: '体重',
-              format: function (val) {
-                  return val;
-              },
-          },
-          width: windowWidth,
-          height: 200,
-          dataLabel: false,
-          dataPointShape: true,
-          extra: {
-              lineStyle: 'Broken'
-          }
-      });
+        this.loadData();
       },
   //身高点击事件
   touchHeightCanvas:function(e){
@@ -127,7 +166,23 @@ touchWeightCanvas:function(e){
   },
   //创建记录
   createRecord:function(){
-
+    this.setData({
+        createDivShow: true,
+      });
+  },
+  heightData: function (e) {
+    let createData = this.data.createData;
+    createData.height = e.detail.value;
+    this.setData({
+      createData: createData
+    })
+  },
+  weightData: function (e) {
+    let createData = this.data.createData;
+    createData.weight = e.detail.value;
+    this.setData({
+      createData: createData
+    })
   },
     /**
      * 生命周期函数--监听页面隐藏

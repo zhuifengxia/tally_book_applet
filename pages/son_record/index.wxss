@@ -24,3 +24,60 @@
     text-align: center;
     border-radius: 5px;
 }
+
+.create-show-content{
+    width: 100%;
+    height: 300px;
+    background-color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.create-show-header{
+    display: flex;
+    width: 95%;
+    padding:10px;
+    justify-content: center;
+    line-height: 40px;
+    height: 40px;
+    background-color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.create-show-header text{
+    width: 90%;
+    text-align: center;
+}
+
+.create-remark{
+    width: 70%;
+    border-bottom: 1px solid #f1f1f1;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+.create-remark image{
+    width: 20px;
+    height: 20px;
+}
+.create-remark input{
+    height: 30px;
+    line-height: 30px;
+    font-size: 15px;
+}
+
+.sure-item{
+    width: 50%;
+    background-color: #8DB8FF;
+    height: 35px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    margin-top:20px;
+}
