@@ -158,7 +158,7 @@ Page({
   },
 //体重点击事件
 touchWeightCanvas:function(e){
-    heightChart.showToolTip(e, {
+    weightChart.showToolTip(e, {
       format: function (item, category) {
         return category + ' ' + item.name + ':' + item.data
       }
