@@ -1,28 +1,21 @@
 <view class="container">
-    <view class="btn-container">
-        <view bind:tap="createRecord">记录</view>
-    </view>
+    <view class="btn-container"></view>
      <view class="echart_panel">
             <canvas canvas-id="heightCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHeightCanvas"></canvas>
-            <canvas canvas-id="weightCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchWeightCanvas"></canvas>
     </view>
-    <l-popup show="{{createDivShow}}" content-align="bottom" locked="{{true}}">
-        <view class="create-show-content">
-            <view class="create-show-header">
-                <l-icon name="close" size="30" color="gray" bind:tap="hideCreate" />
-                <text></text>
-            </view>
-            <view class="create-remark">
-                <image src="../../images/common/remark-icon.png" />
-                <input placeholder="身高" bindinput="heightData" />
-                <text>cm</text>
-            </view>
-            <view class="create-remark">
-                <image src="../../images/common/remark-icon.png" />
-                <input placeholder="体重" bindinput="weightData" />
-                <text>kg</text>
-            </view>
-            <view bind:tap="submitData" class="sure-item">确定</view>
+
+    
+    <view class="create-show-content">
+        <view class="create-remark">
+            <image src="../../images/common/remark-icon.png" />
+            <input placeholder="身高" bindinput="getHeightData" />
+            <text>cm</text>
         </view>
-    </l-popup>
+        <view class="create-remark">
+            <image src="../../images/common/remark-icon.png" />
+            <input placeholder="体重" bindinput="getWeightData" />
+            <text>kg</text>
+        </view>
+        <view bind:tap="submitData" class="sure-item">确定</view>
+    </view>
 </view>

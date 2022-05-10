@@ -4,7 +4,6 @@ import { RecordModel } from "../../models/sonRecord.js";
 var wxCharts = require("../../util/wxcharts-min.js");
 const recordModel = new RecordModel();
 var heightChart=null;
-var weightChart=null;
 Page({
 
     /**
@@ -14,57 +13,65 @@ Page({
         xdata:[],
         heightData:[],
         weightData:[],
-        createDivShow: false,
+        createDivShow:false,
         createData: {
             height: "",
             weight: "",
             date: "",
-          },
+        },
+
     },
 
+    getHeightData: function (e) {
+      let createData = this.data.createData;
+      createData.height = e.detail.value;
+      this.setData({
+        createData: createData
+      })
+    },
+    getWeightData: function (e) {
+      let createData = this.data.createData;
+      createData.weight = e.detail.value;
+      this.setData({
+        createData: createData
+      })
+    },
+       //保存提交
+ async submitData(e) {
+  let createData = this.data.createData;
+  let height = createData.height;
+  let weight = createData.weight;
+  if (height == ""||weight=="") {
+    wx.showToast({
+      title: "请输入身高和体重",
+      icon: "none",
+      duration: 2000
+    });
+  } else {
+    await recordModel.recordSave(height, weight,createData.date);
+    wx.showToast({
+      title: "记录成功",
+      icon: "none",
+      duration: 2000
+    });
+    this.loadData();
+  }
+},
     /**
      * 生命周期函数--监听页面加载
      */
      async onLoad (options) {
-        
+      
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
+     
     },
-    //创建隐藏
-    hideCreate: function (e) {
-    this.setData({
-        createDivShow: false
-    });
-  },
-   //保存提交
-   async submitData(e) {
-    let createData = this.data.createData;
-    let height = createData.height;
-    let weight = createData.weight;
-    if (height == ""||weight=="") {
-      wx.showToast({
-        title: "请输入身高和体重",
-        icon: "none",
-        duration: 2000
-      });
-    } else {
-      await recordModel.recordSave(height, weight,createData.date);
-      wx.showToast({
-        title: "记录成功",
-        icon: "none",
-        duration: 2000
-      });
-      this.setData({
-        createDivShow: false
-      });
-      this.loadData();
-    }
-  },
+    
+
 
   async loadData (e){
     const record = await recordModel.getList();
@@ -91,13 +98,18 @@ Page({
             format: function (val, name) {
                 return val + 'cm';
             }
+        },{
+            name: '体重',
+            data: this.data.weightData,
+            format: function (val, name) {
+                return val + 'kg';
+            }
         }
         ],
         xAxis: {
             disableGrid: true
         },
         yAxis: {
-            title: '身高',
             format: function (val) {
                 return val;
             },
@@ -110,44 +122,16 @@ Page({
             lineStyle: 'Broken'
         }
     });
-
-    weightChart = new wxCharts({
-      canvasId: 'weightCanvas',
-      type: 'line',
-      categories: this.data.xdata,
-      animation: true,
-      series: [{
-          name: '体重',
-          data: this.data.weightData,
-          format: function (val, name) {
-              return val + 'kg';
-          }
-      }
-      ],
-      xAxis: {
-          disableGrid: true
-      },
-      yAxis: {
-          title: '体重',
-          format: function (val) {
-              return val;
-          },
-      },
-      width: windowWidth,
-      height: 200,
-      dataLabel: false,
-      dataPointShape: true,
-      extra: {
-          lineStyle: 'Broken'
-      }
-  });
   },
     /**
      * 生命周期函数--监听页面显示
      */
-     async onShow() {
-        this.loadData();
-      },
+  async onShow() {
+    this.setData({
+      createDivShow: false
+    });
+      this.loadData();
+   },
   //身高点击事件
   touchHeightCanvas:function(e){
     heightChart.showToolTip(e, {
@@ -156,34 +140,19 @@ Page({
       }
     });
   },
-//体重点击事件
-touchWeightCanvas:function(e){
-    weightChart.showToolTip(e, {
-      format: function (item, category) {
-        return category + ' ' + item.name + ':' + item.data
-      }
-    });
-  },
   //创建记录
   createRecord:function(){
     this.setData({
-        createDivShow: true,
-      });
+      createDivShow: true
+    });
   },
-  heightData: function (e) {
-    let createData = this.data.createData;
-    createData.height = e.detail.value;
+
+  hideCreate:function(){
     this.setData({
-      createData: createData
-    })
+      createDivShow: false
+    });
   },
-  weightData: function (e) {
-    let createData = this.data.createData;
-    createData.weight = e.detail.value;
-    this.setData({
-      createData: createData
-    })
-  },
+ 
     /**
      * 生命周期函数--监听页面隐藏
      */
