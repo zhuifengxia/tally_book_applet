@@ -40,7 +40,7 @@ Page({
     showCalendar: false,
     showDate: false,
     indexDate: null,
-    allMoney: { pay: 0, income: 0 }
+    allMoney: { pay: 0, income: 0,surplus:0 }
 
   },
 
@@ -72,7 +72,7 @@ Page({
     const data = await indexModel.getIndex(this.data.seltype.typeid, this.data.seltype.date,this.data.seltype.onlydata);
     this.setData({
       dataList: data.details,
-      allMoney: { pay: data.pay_count, income: data.income_count }
+      allMoney: { pay: data.pay_count, income: data.income_count,surplus: (data.income_count-data.pay_count).toFixed(2)}
     });
   },
   async loadType() {
@@ -135,7 +135,7 @@ Page({
         const data = await indexModel.getIndex(seltype.typeid, seltype.date,seltype.onlydata);
         this.setData({
           dataList: data.details,
-          allMoney: { pay: data.pay_count, income: data.income_count }
+          allMoney: { pay: data.pay_count, income: data.income_count ,surplus: (data.income_count-data.pay_count).toFixed(2)}
         });
       }
 

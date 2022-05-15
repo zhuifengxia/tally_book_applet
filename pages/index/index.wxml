@@ -18,10 +18,13 @@
             </view>
             <view class="money-container">
                 <view wx:if="{{seltype.datatype!=3}}" style="margin-right:10px">
-                    {{seltype.typename!="全部类型"?seltype.typename:""}} 总支出¥{{allMoney.pay}}
+                    {{seltype.typename!="全部类型"?seltype.typename:""}} 支出¥{{allMoney.pay}}
                 </view>
                 <view wx:if="{{seltype.datatype!=2}}">
-                    {{seltype.typename!="全部类型"?seltype.typename:""}} 总收入¥{{allMoney.income}}
+                    {{seltype.typename!="全部类型"?seltype.typename:""}} 收入¥{{allMoney.income}}
+                </view>
+                <view style="margin-left:10px" wx:if="{{seltype.datatype==0}}">
+                      盈余¥{{allMoney.surplus}}
                 </view>
             </view>
         </view>

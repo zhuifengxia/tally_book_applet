@@ -13,12 +13,16 @@
             </view>
         </view>
         <view class="money-container">
-            <text class="pay-msg">共支出</text>
+            <text class="pay-msg">共盈余</text>
             <view style="display:flex">
                 <text class="pay-price-unit">¥</text>
-                <text class="pay-price">{{pay_count}}</text>
+                <text class="pay-price">{{surplus_count}}</text>
             </view>
-            <text class="income-msg">共收入¥{{incom_count}}</text>
+            <view>
+            <text class="income-msg" style="margin-right:20px;">共收入¥{{incom_count}}</text>
+            <text class="income-msg">共支出¥{{pay_count}}</text>
+            </view>
+            
         </view>
     </view>
     <view class="bottom-container" wx:if="{{show_data||top_data}}">
