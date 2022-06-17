@@ -87,6 +87,9 @@
                     <view class="tag {{createType.type==1?'tag-pay':''}}" bind:tap="tagChange" data-type="1">
                         支出
                     </view>
+                     <view class="tag {{createType.type==2?'tag-pay':''}}" bind:tap="tagChange" data-type="2">
+                        孩子支出
+                    </view>
                     <view class="tag {{createType.type==0?'tag-income':''}}" bind:tap="tagChange" data-type="0">
                         收入
                     </view>

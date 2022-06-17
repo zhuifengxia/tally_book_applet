@@ -166,6 +166,9 @@ Page({
     if (type == 1) {
       typedata = this.data.typeList.pay_type;
       createData.tagid = this.data.typeList.pay_type[0]["id"];
+    }else if(type==2){
+      typedata = this.data.typeList.child_pay_type;
+      createData.tagid = this.data.typeList.child_pay_type[0]["id"];
     }
     this.setData({
       createType: { data: typedata, type: type },
