@@ -64,6 +64,16 @@
                     </view>
                 </view>
                 <view class="type-show-type">
+                    <text class="type-title">孩子支出</text>
+                    <view class="type-list">
+                        <block wx:for="{{typeList.child_pay_type}}" wx:key="id">
+                            <view class="type-item {{seltype.typeid==item.id?'type-item-active':''}}" bind:tap="showType" data-type="2" data-id="{{item.id}}" data-typename="{{item.type_name}}">
+                                {{item.type_name}}
+                            </view>
+                        </block>
+                    </view>
+                </view>
+                <view class="type-show-type">
                     <text class="type-title">收入</text>
                     <view class="type-list">
                         <block wx:for="{{typeList.income_type}}" wx:key="id">
