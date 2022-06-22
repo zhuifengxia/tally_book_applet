@@ -1,6 +1,8 @@
 import { IndexModel } from "../../models/index.js";
-import * as echarts from '../../ec-canvas/echarts';
+
+var wxCharts = require("../../util/wxcharts-min.js");
 const indexModel = new IndexModel();
+var incomeChart=null;
 Page({
 
   /**
@@ -34,8 +36,59 @@ Page({
         income_data: data.income_data,
         date: data.year
       })
-      this.echartsComponnet = this.selectComponent('#mychart');
-      this.init_echarts()
+
+      var windowWidth = 380;
+      try {
+          var res = wx.getSystemInfoSync();
+          windowWidth = res.windowWidth;
+      } catch (e) {
+          console.error('getSystemInfoSync failed!');
+      }
+      incomeChart = new wxCharts({
+          canvasId: 'incomeCanvas',
+          type: 'area',
+          categories: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+          animation: true,
+          legend:false,
+          series: [{
+              name: '收入',
+              color:'#FFBE00',
+              data: this.data.income_data,
+              format: function (val, name) {
+                  return val + '元';
+              },
+          }],
+          xAxis: {
+              disableGrid: true,
+              fontColor: '#FFBE00',
+              gridColor: '#FFBE00'
+          },
+          yAxis: {
+            fontColor: '#FFBE00',
+            gridColor: '#FFBE00',
+            titleFontColor: '#FFBE00',
+              format: function (val) {
+                  return val;
+              },
+          },
+          width: windowWidth,
+          height: 200,
+          dataLabel: false,
+          dataPointShape: true,
+          extra: {
+            lineStyle: 'curve',
+          }
+      });
+
+
+
+
+
+
+
+
+
+
 
       wx.hideLoading();
     } else {
@@ -46,57 +99,21 @@ Page({
       });
     }
   },
+    //每月收入点击事件
+    touchIncomeCanvas:function(e){
+      incomeChart.showToolTip(e, {
+        format: function (item, category) {
+          return category + ' ' + item.name + ':' + item.data
+        }
+      });
+    },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.loadData();
   },
-  init_echarts: function () {
-    this.echartsComponnet.init((canvas, width, height) => {
-      // 初始化图表
-      const Chart = echarts.init(canvas, null, {
-        width: width,
-        height: height
-      });
-      Chart.setOption(this.getOption());
-      // 注意这里一定要返回 chart 实例，否则会影响事件处理等
-      return Chart;
-    });
-  },
 
-  // 获取数据
-  getOption: function () {
-    var that = this
-    // 前台配置折线线条表示属性
-    var option = {
-      lineStyle: { color: "#FFBE00" },
-      areaStyle: { color: "#FFBE00" },
-      color: "#FFBE00",
-      xAxis: {
-        type: 'category',
-        boundaryGap: false,
-        data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
-      },
-      yAxis: {
-        type: 'value'
-      },
-      tooltip: {
-        trigger: "item",
-        formatter: "{b} : ¥{c}元",
-        backgroundColor: "#FFBE00",
-        textStyle: {
-          color: "white"
-        },
-      },
-      series: [{
-        data: that.data.income_data,
-        type: 'line',
-        areaStyle: {}
-      }]
-    };
-    return option
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

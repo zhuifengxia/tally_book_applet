@@ -56,6 +56,12 @@
                     "pathName": "pages/son_record/index",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "pages/y",
+                    "pathName": "pages/year_bill/index",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }
