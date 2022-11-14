@@ -98,6 +98,9 @@ Page({
     if (type == 1) {
       typedata = this.data.typeList.pay_type;
       editData.type_id = this.data.typeList.pay_type[0]["id"];
+    }else if(type==2){
+      typedata = this.data.typeList.child_pay_type;
+      editData.type_id = this.data.typeList.child_pay_type[0]["id"];
     }
     this.setData({
       editData: editData,
@@ -164,7 +167,7 @@ Page({
       const data = await indexModel.getType();
       this.setData({
         typeList: data.types,
-        typedata: type == 1 ? data.types.pay_type : data.types.income_type,
+        typedata: type == 1 ? data.types.pay_type : (type==2?data.types.child_pay_type:data.types.income_type),
       });
     }
   },
