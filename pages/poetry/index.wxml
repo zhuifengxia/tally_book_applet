@@ -1,0 +1,8 @@
+<view class="container">
+    <view class="poetry-container">
+        <block wx:for="{{poetrys}}" wx:key="">
+            <m-poetry class="poetry-item" data="{{item}}"></m-poetry>
+        </block>
+    </view>
+    <l-loading show="{{loading}}" l-class="loading" type="change"></l-loading>
+</view>

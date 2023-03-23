@@ -9,7 +9,8 @@
         "pages/clock_in/index",
         "pages/recipe/index",
         "pages/son_record/index",
-        "pages/article_detail/index"
+        "pages/article_detail/index",
+        "pages/poetry/index"
     ],
     "window": {
         "navigationBarTitleText": "小莫记账",

@@ -83,6 +83,10 @@ Page({
       wx.navigateTo({
         url: "/pages/recipe/index",
       });
+    }else if(type==7){
+      wx.navigateTo({
+        url: "/pages/poetry/index",
+      });
     }
     
   },

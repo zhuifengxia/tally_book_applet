@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    background-color: white;
+    padding: 10rpx;
+    margin-top: 20rpx;
+    border:1px solid #dedede;
+    border-radius: 10px;
+}
+
+.poetry-title{
+    font-size:18px;
+    padding:10px 0;
+}
+
+.poetry-author{
+    font-size:14px;
+    padding-bottom:5px;
+}
+.poetry-content{
+    white-space: pre-line;
+    font-size:14px;
+    line-height:30px;
+}

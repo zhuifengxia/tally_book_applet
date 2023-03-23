@@ -1,0 +1,10 @@
+/* pages/poetry/index.wxss */
+.poetry-container{
+    display:flex;
+    justify-content: space-around;
+}
+.poetry-item{
+    width:48%;
+    display:flex;
+    justify-content:center;
+}

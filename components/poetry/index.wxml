@@ -1,0 +1,5 @@
+<view class="container">
+    <view class="poetry-title">{{data.poetry_title}}</view>
+    <view class="poetry-author">{{data.poetry_age}}·{{data.poetry_author}}</view>
+    <rich-text class="poetry-content" nodes="{{data.poetry_content}}"></rich-text>
+</view>
