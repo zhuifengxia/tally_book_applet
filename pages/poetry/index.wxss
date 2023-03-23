@@ -2,6 +2,7 @@
 .poetry-container{
     display:flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 .poetry-item{
     width:48%;
