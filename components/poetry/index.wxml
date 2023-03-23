@@ -1,4 +1,4 @@
-<view class="container" style="background-color:{{data.bk_color}};font-color:{{data.font_color}}">
+<view class="container" style="background-color:{{data.bk_color}};color:{{data.font_color}}">
     <view class="poetry-title">{{data.poetry_title}}</view>
     <view class="poetry-author">{{data.poetry_age}}·{{data.poetry_author}}</view>
     <rich-text class="poetry-content" nodes="{{data.poetry_content}}"></rich-text>
