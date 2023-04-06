@@ -1,5 +1,0 @@
-{
-    "require": {
-        "topthink/think-captcha": "^3.0"
-    }
-}
