@@ -16,6 +16,9 @@ Component({
      * 组件的方法列表
      */
     methods: {
+      onLearn(event) {
+        this.triggerEvent("onLearn", { id: this.data.data.id }, {});
+      }
     }
   });
   

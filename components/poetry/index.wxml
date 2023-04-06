@@ -2,4 +2,5 @@
     <view class="poetry-title">{{data.poetry_title}}</view>
     <view class="poetry-author">{{data.poetry_age}}·{{data.poetry_author}}</view>
     <rich-text class="poetry-content" nodes="{{data.poetry_content}}"></rich-text>
+    <view wx:if="{{data.is_learn==0}}" bind:tap="onLearn" style="border:1px solid white;border-radius: 5px;padding: 0px 5px;background:white;color:{{data.bk_color}}">已学</view>
 </view>

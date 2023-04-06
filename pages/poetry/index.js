@@ -16,6 +16,15 @@ Page({
         sel_type_name:"全部"
     },
 
+    async onLearn(event) {
+      const id = event.detail.id;
+      const res=await poetryModel.isLearn(id);
+      wx.showToast({
+        title: "已学习",
+        icon: "none",
+        duration: 2000
+      });
+    },
      //弹出分类框
   showType: function (event) {
     let type = event.currentTarget.dataset.type;

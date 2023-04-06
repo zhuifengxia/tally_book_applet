@@ -23,7 +23,7 @@
     </l-popup>
     <view class="poetry-container">
         <block wx:for="{{poetrys}}" wx:key="">
-            <m-poetry class="poetry-item" data="{{item}}"></m-poetry>
+            <m-poetry bind:onLearn="onLearn" class="poetry-item" data="{{item}}"></m-poetry>
         </block>
     </view>
     <l-loading show="{{loading}}" l-class="loading" type="change"></l-loading>
