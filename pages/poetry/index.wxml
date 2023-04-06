@@ -1,4 +1,26 @@
 <view class="container">
+  <view style="display:flex;align-items: center;">
+  <view class="type-container">
+        <view class="type-view" bind:tap="showType" data-type="1">
+            <text>{{sel_type_name}}</text>
+            <image src="../../images/common/down-icon.png" />
+        </view>
+    </view>
+    <view style="line-height:45px;height:30px;">共{{total}}首</view>
+    </view>
+<l-popup show="{{is_check_type}}" content-align="bottom">
+        <scroll-view class="type-show-container" scroll-y="{{true}}">
+            <view class="type-show-header">
+                <text>请选择分类</text>
+                <l-icon name="close" size="30" color="gray" bind:tap="showType" data-type="0" />
+            </view>
+            <view class="type-list">
+                 <view class="type-item" data-id="-1" bind:tap="changeType">全部</view>
+                 <view class="type-item" data-id="0" bind:tap="changeType">未学习</view>
+                 <view class="type-item" data-id="1" bind:tap="changeType">已学习</view>
+            </view>
+        </scroll-view>
+    </l-popup>
     <view class="poetry-container">
         <block wx:for="{{poetrys}}" wx:key="">
             <m-poetry class="poetry-item" data="{{item}}"></m-poetry>

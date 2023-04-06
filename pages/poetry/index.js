@@ -11,13 +11,42 @@ Page({
         loading: false,
         page: 1,
         total: null,
+        is_learn:-1,
+        is_check_type: false,
+        sel_type_name:"全部"
     },
 
+     //弹出分类框
+  showType: function (event) {
+    let type = event.currentTarget.dataset.type;
+    this.setData({
+      is_check_type: type ==0 ? false : true
+    })
+  },
+   //更换分类
+   async changeType (event) {
+    let typeid = event.currentTarget.dataset.id;
+    let sel_type_name="全部";
+    if(typeid==1){
+      sel_type_name="已学习";
+    }else if(typeid==0){
+      sel_type_name="未学习";
+    }
+    const poetrys = await poetryModel.getList(1,typeid);
+        this.setData({
+          poetrys: poetrys.data,
+          total: poetrys.total,
+          is_check_type: false,
+          is_learn:typeid,
+          sel_type_name:sel_type_name,
+          page:1
+        });
+  },
     /**
      * 生命周期函数--监听页面加载
      */
      async onLoad (options) {
-        const poetrys = await poetryModel.getList(1);
+        const poetrys = await poetryModel.getList(1,-1);
         this.setData({
           poetrys: poetrys.data,
           total: poetrys.total
@@ -69,7 +98,8 @@ Page({
         if (this._hasMore()) {
           this._locked();
           const poetrys = await poetryModel.getList(
-            this.data.page + 1
+            this.data.page + 1,
+            this.data.is_learn
           );
           const tempArray = this.data.poetrys.concat(poetrys.data);
           this.setData({

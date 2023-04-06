@@ -1,6 +1,8 @@
 {
   "usingComponents": {
     "m-poetry": "/components/poetry/index",
-    "l-loading": "/miniprogram_npm/lin-ui/loading/index"
+    "l-loading": "/miniprogram_npm/lin-ui/loading/index",
+    "l-icon": "/miniprogram_npm/lin-ui/icon/index",
+    "l-popup": "/miniprogram_npm/lin-ui/popup/index"
   }
 }

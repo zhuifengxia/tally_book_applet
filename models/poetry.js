@@ -2,14 +2,15 @@ import { HTTP } from "../util/http-p.js";
 
 class PoetryModel extends HTTP {
   //文章列表
-  getList(page) {
+  getList(page,is_learn) {
     let user_info = this._getUserData();
     return this.request({
       url: "tally/poetryList",
       method: "GET",
       data: {
         token: user_info.token,
-        page: page
+        page: page,
+        is_learn:is_learn
       }
     });
   }
