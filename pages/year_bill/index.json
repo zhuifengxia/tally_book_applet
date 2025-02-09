@@ -1,6 +1,8 @@
 {
   "usingComponents": {
     "m-type-stat": "/components/one_type_stat/index",
-    "ec-canvas": "/ec-canvas/ec-canvas"
+    "ec-canvas": "/ec-canvas/ec-canvas",
+    "l-icon": "/miniprogram_npm/lin-ui/icon/index",
+    "l-popup": "/miniprogram_npm/lin-ui/popup/index"
   }
 }

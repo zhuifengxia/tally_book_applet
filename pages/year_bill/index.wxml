@@ -1,5 +1,5 @@
 <view class="container">
-    <view class="title">{{date}}全年</view>
+    <view class="title"><text bind:tap="showYear" data-type="1">{{date}}全年</text><text style="margin-right: 30px;">本年盈余：¥{{surplus_count}}</text></view>
     <view class="pay-container">
         <view class="pay-title">
             <view class="pay-me">我支出的</view>
@@ -29,4 +29,20 @@
             <canvas canvas-id="incomeCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchIncomeCanvas"></canvas>
     </view>
     </view>
+
+    <l-popup show="{{is_show_year}}" content-align="bottom">
+        <scroll-view class="year-show-container" scroll-y="{{true}}">
+            <view class="year-show-header">
+                <text>请选择年份</text>
+                <l-icon name="close" size="30" color="gray" bind:tap="showYear" data-type="0" />
+            </view>
+            <view class="year-list">
+                <block wx:for="{{year_list}}" wx:key="id">
+                    <view class="year-item" data-id="{{item}}" bind:tap="changeYear">
+                        {{item}}
+                    </view>
+                </block>
+            </view>
+        </scroll-view>
+    </l-popup>
 </view>

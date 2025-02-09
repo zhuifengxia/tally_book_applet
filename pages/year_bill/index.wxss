@@ -13,6 +13,8 @@
     background-color: white;
     padding-left: 35px;
     z-index: 99999;
+    display: flex;
+    justify-content: space-between;
 }
 .pay-container{
     margin-top: 40px;
@@ -70,4 +72,46 @@
     height: 500rpx;
     background-color: white;
     margin-bottom: 20px;
+}
+.year-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding-top: 50px;
+}
+.year-item{
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #dedede;
+}
+.year-show-container{
+    width: 100%;
+    height: auto;
+    background-color: #FAFAFA;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.year-show-header{
+    display: flex;
+    width: 95%;
+    padding:10px;
+    justify-content: center;
+    line-height: 30px;
+    height: 30px;
+    border-bottom: 1px solid #dedede;
+    margin:0 auto;
+    position: fixed;
+    background-color: #FAFAFA;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.year-show-header text{
+    width: 90%;
+    text-align: center;
 }

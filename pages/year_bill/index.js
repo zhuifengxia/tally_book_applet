@@ -15,7 +15,10 @@ Page({
     pay_data: [], //每个类型支出明细
     income_num: 0, //总收入笔数
     income_count: 0, //总收入金额
+    surplus_count:0,//盈余
     income_data: [], //每月收入
+    is_show_year:false,//是否显示选择年份
+    year_list:[],
     ecLine: {
       lazyLoad: true
     }
@@ -34,6 +37,8 @@ Page({
         income_num: data.income_num,
         income_count: data.income_count,
         income_data: data.income_data,
+        surplus_count:(data.income_count-data.pay_count).toFixed(2),
+        year_list:data.year_list,
         date: data.year
       })
 
@@ -98,6 +103,20 @@ Page({
         duration: 2000
       });
     }
+  },
+  showYear:function(event){
+    let type = event.currentTarget.dataset.type;
+    this.setData({
+      is_show_year: type == 0 ? false : true
+    })
+  },
+  changeYear: function (event) {
+    let year = event.currentTarget.dataset.id;
+    this.setData({
+        is_show_year: false,
+        date:year
+    });
+    this.loadData();
   },
     //每月收入点击事件
     touchIncomeCanvas:function(e){
