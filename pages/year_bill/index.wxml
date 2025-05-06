@@ -27,8 +27,28 @@
         <view class="line-container"></view>
         <view class="echart_panel">
             <canvas canvas-id="incomeCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchIncomeCanvas"></canvas>
+        </view>
     </view>
+
+    <view class="pay-container" style="margin-top:4px">
+        <view class="pay-title">
+            <view class="pay-me">每月支出情况</view>
+        </view>
+        <view class="echart_panel">
+            <canvas canvas-id="monthpayCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchMonthPayCanvas"></canvas>
+        </view>
     </view>
+
+    <view class="pay-container" style="margin-top:4px">
+        <view class="pay-title">
+            <view class="pay-me" style="color:#FFBE00">每月结余情况</view>
+        </view>
+        <view class="echart_panel">
+            <canvas canvas-id="monthbalanceCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchMonthBalanceCanvas"></canvas>
+        </view>
+    </view>
+
+
 
     <l-popup show="{{is_show_year}}" content-align="bottom">
         <scroll-view class="year-show-container" scroll-y="{{true}}">
